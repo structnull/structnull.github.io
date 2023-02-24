@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>愛</title>
+    <link>https://chiefdinkan.github.io/</link>
+    <description>Recent content on 愛</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Jan 2023 11:13:55 +0530</lastBuildDate>
+    
+        <atom:link href="https://chiefdinkan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blogs</title>
+      <link>https://chiefdinkan.github.io/blog/</link>
+      <pubDate>Sat, 28 Jan 2023 11:13:55 +0530</pubDate>
+      
+      <guid>https://chiefdinkan.github.io/blog/</guid>
+      <description></description>
+      
+      
+    </item>
+    
+    <item>
+      <title>Weirds</title>
+      <link>https://chiefdinkan.github.io/weird/</link>
+      <pubDate>Mon, 05 Dec 2022 23:01:37 +0530</pubDate>
+      
+      <guid>https://chiefdinkan.github.io/weird/</guid>
+      <description></description>
+      
+      
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://chiefdinkan.github.io/about/</link>
+      <pubDate>Sun, 13 Nov 2022 11:24:29 +0530</pubDate>
+      
+      <guid>https://chiefdinkan.github.io/about/</guid>
+      <description>&lt;h1 id=&#34;hi&#34;&gt;Hi!&lt;/h1&gt;
+&lt;p&gt;My name is &lt;strong&gt;Adharsh&lt;/strong&gt;,
+And This is a website made by &lt;a href=&#34;https://gohugo.io/&#34;&gt;hugo&lt;/a&gt;.&lt;a href=&#34;https://codeberg.org/dinkan/website&#34;&gt;Source code&lt;/a&gt; of this website is hosted at codeberg&lt;/p&gt;
+&lt;p&gt;You can contact me by &lt;a href=&#34;https://www.instagram.com/va_adharsh/&#34;&gt;instagram&lt;/a&gt; , &lt;a href=&#34;https://github.com/chiefdinkan&#34;&gt;github&lt;/a&gt; , &lt;a href=&#34;mailto:adharshva321@gmail.com&#34;&gt;email&lt;/a&gt;&lt;/p&gt;
+</description>
+      
+      
+    </item>
+    
+  </channel>
+</rss>
