@@ -8,8 +8,9 @@
 
 		
 
+		<link rel="stylesheet" href="https://chiefdinkan.github.io/css/bpdotregular.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="https://chiefdinkan.github.io/node_modules/jetbrains-mono/css/jetbrains-mono.css">
 		<link rel="stylesheet" href="https://chiefdinkan.github.io/node_modules/normalize.css/normalize.css">
-		<link rel="stylesheet" href="https://chiefdinkan.github.io/node_modules/firacode/distr/fira_code.css">
 		<link rel="stylesheet" href="https://chiefdinkan.github.io/css/nanum-gothic-coding.css">
 		<link rel="stylesheet" href="https://chiefdinkan.github.io/css/style.css">
     <script src="https://chiefdinkan.github.io/js/scroll.js"></script>
@@ -27,16 +28,19 @@
 
 <div id="main">
     <nav>
-	<div class="nav-container"><a href="https://chiefdinkan.github.io/">home</a> &middot;
-	<a href="https://chiefdinkan.github.io/blog">blog</a> &middot;
-	<a href="https://chiefdinkan.github.io/weird">weird</a> &middot;
+	<div class="nav-container"><a href="https://chiefdinkan.github.io/">home</a> &bullet;
+	<a href="https://chiefdinkan.github.io/blog">blog</a> &bullet;
+	<a href="https://chiefdinkan.github.io/weird">weird</a> &bullet;
 	<a rel="me" href="https://chiefdinkan.github.io/about">about</a> 
 </nav>
 
 <style>
+
 .nav-container {
     display: flex;
+    font-style: 'bpdots',monospace;
     justify-content: center;
+    align-items: center; 
     flex-wrap: nowrap;
 }
 nav a {
@@ -45,14 +49,16 @@ nav a {
     padding: 0 10px;
     transition: all 0.2s ease;
     flex: 1;
+    align-items: center; 
 }
 nav a:hover {
     text-decoration: underline;
-    color: yellowgreen;
+    color: #725E9C;
     transform: scale(1.1);
 }
-&middot; {
+&bullet; {
     font-size: inherit;
+    font-style: bold;
 }
 @media screen and (max-width: 600px) {
     .nav-container{
@@ -61,7 +67,7 @@ nav a:hover {
     nav a{
         width: 100%;
         text-align: center;
-        font-size: 14px;
+        font-size: 1.3em;
     }
 }
 </style>
@@ -100,9 +106,10 @@ font-family: 'Noto Emoji', sans-serif;
 			<time datetime='2022-11-13T11:24:29&#43;05:30'>2022-11-13</time>
 		
 	</header>
-	<h1 id="hi">Hi!</h1>
+	<h2 id="hola">Hola</h2>
 <p>My name is <strong>Adharsh</strong>,
-And This is a website made by <a href="https://gohugo.io/">hugo</a>.<a href="https://codeberg.org/dinkan/website">Source code</a> of this website is hosted at codeberg</p>
+And This is a website made by <a href="https://gohugo.io/">hugo</a>.
+<a href="https://codeberg.org/dinkan/website">Source code</a> of this website is hosted at codeberg</p>
 <p>You can contact me by <a href="https://www.instagram.com/va_adharsh/">instagram</a> , <a href="https://github.com/chiefdinkan">github</a> , <a href="mailto:adharshva321@gmail.com">email</a></p>
 
     </div>
@@ -121,6 +128,7 @@ And This is a website made by <a href="https://gohugo.io/">hugo</a>.<a href="htt
 	<footer>
 		© 2023 Adharsh  
 		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/3.0/us/80x15.png"></a>
+        <a href ="https://github.com/chiefdinkan/chiefdinkan.github.io">Source</a>
 	</footer>
 </div>
 

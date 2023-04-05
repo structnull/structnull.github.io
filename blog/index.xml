@@ -6,10 +6,46 @@
     <description>Recent content in Blogs on 愛</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Jan 2023 11:13:55 +0530</lastBuildDate>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/chiefdinkan&#34;&gt;Adharsh&lt;/a&gt; 2022-23</copyright>
+    <lastBuildDate>Mon, 03 Apr 2023 10:02:37 +0530</lastBuildDate>
     
         <atom:link href="https://chiefdinkan.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2023-04-03</title>
+      <link>https://chiefdinkan.github.io/blog/2023-04-03/</link>
+      <pubDate>Mon, 03 Apr 2023 10:02:37 +0530</pubDate>
+      
+      <guid>https://chiefdinkan.github.io/blog/2023-04-03/</guid>
+      <description>&lt;p&gt;Its been quite a while since I&amp;rsquo;ve last posted on my blog. Life has been busy with various things, including personal matters and studies. However, I am now exploring a new project, which involves creating an Android app using Flutter, Dart, and possibly JavaScript. Although I haven&amp;rsquo;t decided on the app&amp;rsquo;s purpose yet, I am considering a download manager with extensive plugin support.&lt;/p&gt;
+&lt;p&gt;Meanwhile, I have been thoroughly enjoying using &lt;strong&gt;Hyprland&lt;/strong&gt; for the past six months. Hyprland began as a dynamic window manager/compositor and has since gained over 7200 stars on GitHub. It&amp;rsquo;s more stable than ever, and I&amp;rsquo;m thrilled to see how far it has come.&lt;/p&gt;
+&lt;p&gt;As for my personal configuration, I have been refining it with linters in my &lt;strong&gt;Neovim&lt;/strong&gt; config and experimenting with new CSS formats. One significant change is that I have added my new fonts and qol improvements to this blog site for a more focused minimal expericence.&lt;/p&gt;
+&lt;p&gt;In addition to my programming endeavors, I&amp;rsquo;ve also been exploring the world of custom Android modding. Recently, I successfully installed a custom ROM for my Samsung phone, which I&amp;rsquo;m currently using as my daily driver, and it&amp;rsquo;s been a great experience so far. If you&amp;rsquo;re interested in custom ROMs and Android modding, I&amp;rsquo;ll link some useful resources below.&lt;/p&gt;
+&lt;p&gt;Did you know that you can fake that you&amp;rsquo;re using a rooted phone from any app using zygote+Magisk? This has been instrumental in how I use UPI/Banking apps, and it&amp;rsquo;s great to have that flexibility.&lt;/p&gt;
+&lt;p&gt;I also highly recommend using the &lt;strong&gt;Revanced Manager&lt;/strong&gt; app with &lt;strong&gt;AdAway&lt;/strong&gt; for top-notch app productivity. It&amp;rsquo;s insane how much control and customization you can get with these tools. Seriously, Revanced Manager is the bomb - not only can you patch YouTube, but you can also patch most other apps too.&lt;/p&gt;
+&lt;h2 id=&#34;here-are-some-useful-resourceswebsites&#34;&gt;Here are some useful resources/websites:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;xda-developers.com/&#34;&gt;xda-developers.com/&lt;/a&gt; Search for your mobile model with its manufacturer. its a hit or miss but u can most probabily find resources on how to root/mod you android phone&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.xda-developers.com/best-magisk-modules/&#34;&gt;Best magisk modules&lt;/a&gt; Check here for the best &lt;a href=&#34;https://github.com/topjohnwu/Magisk&#34;&gt;magisk&lt;/a&gt; modules.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://forum.xda-developers.com/t/revanced-revanced-extended-guides-useful-links.4523967/&#34;&gt;Revanced-manager&lt;/a&gt; All info to get started with revanced manager.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chiefdinkan/dotfiles&#34;&gt;mah dotfiles&lt;/a&gt; pols aagai sir pols aagai&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/thewaywardlaureate/ByzantineGPT&#34;&gt;ByzantineGPT&lt;/a&gt; Created by the world class poet and schizophrenic who is a certified lover boy &lt;a href=&#34;https://thewaywardlaureate.github.io/&#34;&gt;VPJ&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;I know that installing vfio on my Linux laptop will cost me a significant portion of my life and my sanity, but the voices in my head insist on it.
+They speak in my ear in a horrible cacophony of insanity, their words twisting and bending.
+But because they are the only thing keeping me alive, I am powerless to fight them.
+I have longed for love, for human connection, but my humanity is slipping away with each passing day.
+The only thing that brings me solace is the world of GNU/Linux.
+My mental replay of their statements feeds my obsession with technology and drives me deeper into the pit.
+But still, the voices demand more. They demand that I sacrifice everything for the sake of the code, that I give up my sanity and my very soul.
+And I know, deep down, that I will obey their every command. For they are the only thing that keeps me from fading into nothingness.&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+</description>
+      
+      
+    </item>
     
     <item>
       <title>2023-01-28</title>
@@ -17,7 +53,7 @@
       <pubDate>Sat, 28 Jan 2023 11:13:55 +0530</pubDate>
       
       <guid>https://chiefdinkan.github.io/blog/2023-01-28/</guid>
-      <description>&lt;h1 id=&#34;hi&#34;&gt;HI!&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;hi&#34;&gt;HI!&lt;/h2&gt;
 &lt;p&gt;CSS, or Cascading Style Sheets, is a powerful styling language that can be used to create visually stunning designs and effects on websites and applications. One of the features of CSS that I&amp;rsquo;ve recently been exploring is the use of em units.&lt;/p&gt;
 &lt;p&gt;For those who may not be familiar, em units are a way to define the size of text or other elements in relation to the size of the font of the parent element. This allows for greater flexibility in designing responsive layouts, as the size of elements will automatically adjust based on the size of the font.&lt;/p&gt;
 &lt;p&gt;Recently, I&amp;rsquo;ve been experimenting with using em units in my Waybar config, a status bar for Wayland compositors. By using em units, I can create designs that automatically adjust to the size of the font, making it easier to create visually pleasing layouts that look great on different screen sizes and resolutions.&lt;/p&gt;
@@ -37,7 +73,7 @@
       <pubDate>Fri, 02 Dec 2022 23:07:55 +0530</pubDate>
       
       <guid>https://chiefdinkan.github.io/blog/2022-12-02/</guid>
-      <description>&lt;h1 id=&#34;namaskaram-&#34;&gt;Namaskaram 🙏&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;namaskaram-&#34;&gt;Namaskaram 🙏&lt;/h2&gt;
 &lt;p&gt;I was tasked to create a CNN for a project in a hackathon named &amp;ldquo;AITHON&amp;rdquo; conducted by the IEEE club in my college.&lt;/p&gt;
 &lt;p&gt;The first step in creating a CNN for a project in a hackathon is to define the problem. What is the goal of the project? What data is available? What is the desired outcome? Once the problem is clearly defined, the next step is to develop a strategy for building the CNN. This includes selecting the appropriate architecture, layers, and hyperparameters. Additionally, the data should be preprocessed and split into training, validation, and testing sets. After the CNN is built, it should be tested and evaluated to ensure it is performing as expected. Finally, the model should be deployed and used to generate predictions.&lt;/p&gt;
 &lt;h3 id=&#34;the-steps-i-followed-were&#34;&gt;The steps I followed were:&lt;/h3&gt;
@@ -68,7 +104,7 @@ Also, I used a library called sklearn for splitting the data into training, vali
 &lt;ul&gt;
 &lt;li&gt;Keras is a high-level API for building and training deep learning models. It is easy to use and provides a range of tools for building complex models. Additionally, it is compatible with a variety of backends, including TensorFlow, which makes it a great choice for building CNNs.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;I Would probably publish my  model on a platform such as Kaggle or GitHub and make it available to the public soon as  I am free.&lt;/p&gt;
+&lt;p&gt;I Would probably publish my model on a platform such as Kaggle or GitHub and make it available to the public soon as I am free.&lt;/p&gt;
 &lt;p&gt;And this Entire blog was created using openai&amp;rsquo;s GPT-3 model text-davinci-003 using the openai API and python.&lt;/p&gt;
 &lt;p&gt;Why?&lt;/p&gt;
 &lt;p&gt;I wanted to demonstrate the capabilities of OpenAI&amp;rsquo;s GPT-3 model and how it can be used to generate text. GPT-3 is a powerful language model that can generate text based on a prompt. By using the OpenAI API and Python, I was able to generate this blog post with minimal effort.(This was also written by the ai. sed :| )&lt;/p&gt;

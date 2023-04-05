@@ -8,8 +8,9 @@
 
 		
 
+		<link rel="stylesheet" href="https://chiefdinkan.github.io/css/bpdotregular.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="https://chiefdinkan.github.io/node_modules/jetbrains-mono/css/jetbrains-mono.css">
 		<link rel="stylesheet" href="https://chiefdinkan.github.io/node_modules/normalize.css/normalize.css">
-		<link rel="stylesheet" href="https://chiefdinkan.github.io/node_modules/firacode/distr/fira_code.css">
 		<link rel="stylesheet" href="https://chiefdinkan.github.io/css/nanum-gothic-coding.css">
 		<link rel="stylesheet" href="https://chiefdinkan.github.io/css/style.css">
     <script src="https://chiefdinkan.github.io/js/scroll.js"></script>
@@ -27,16 +28,19 @@
 
 <div id="main">
     <nav>
-	<div class="nav-container"><a href="https://chiefdinkan.github.io/">home</a> &middot;
-	<a href="https://chiefdinkan.github.io/blog">blog</a> &middot;
-	<a href="https://chiefdinkan.github.io/weird">weird</a> &middot;
+	<div class="nav-container"><a href="https://chiefdinkan.github.io/">home</a> &bullet;
+	<a href="https://chiefdinkan.github.io/blog">blog</a> &bullet;
+	<a href="https://chiefdinkan.github.io/weird">weird</a> &bullet;
 	<a rel="me" href="https://chiefdinkan.github.io/about">about</a> 
 </nav>
 
 <style>
+
 .nav-container {
     display: flex;
+    font-style: 'bpdots',monospace;
     justify-content: center;
+    align-items: center; 
     flex-wrap: nowrap;
 }
 nav a {
@@ -45,14 +49,16 @@ nav a {
     padding: 0 10px;
     transition: all 0.2s ease;
     flex: 1;
+    align-items: center; 
 }
 nav a:hover {
     text-decoration: underline;
-    color: yellowgreen;
+    color: #725E9C;
     transform: scale(1.1);
 }
-&middot; {
+&bullet; {
     font-size: inherit;
+    font-style: bold;
 }
 @media screen and (max-width: 600px) {
     .nav-container{
@@ -61,7 +67,7 @@ nav a:hover {
     nav a{
         width: 100%;
         text-align: center;
-        font-size: 14px;
+        font-size: 1.3em;
     }
 }
 </style>
@@ -100,7 +106,7 @@ font-family: 'Noto Emoji', sans-serif;
 			<time datetime='2022-12-02T23:07:55&#43;05:30'>2022-12-02</time>
 		
 	</header>
-	<h1 id="namaskaram-">Namaskaram 🙏</h1>
+	<h2 id="namaskaram-">Namaskaram 🙏</h2>
 <p>I was tasked to create a CNN for a project in a hackathon named &ldquo;AITHON&rdquo; conducted by the IEEE club in my college.</p>
 <p>The first step in creating a CNN for a project in a hackathon is to define the problem. What is the goal of the project? What data is available? What is the desired outcome? Once the problem is clearly defined, the next step is to develop a strategy for building the CNN. This includes selecting the appropriate architecture, layers, and hyperparameters. Additionally, the data should be preprocessed and split into training, validation, and testing sets. After the CNN is built, it should be tested and evaluated to ensure it is performing as expected. Finally, the model should be deployed and used to generate predictions.</p>
 <h3 id="the-steps-i-followed-were">The steps I followed were:</h3>
@@ -131,7 +137,7 @@ Also, I used a library called sklearn for splitting the data into training, vali
 <ul>
 <li>Keras is a high-level API for building and training deep learning models. It is easy to use and provides a range of tools for building complex models. Additionally, it is compatible with a variety of backends, including TensorFlow, which makes it a great choice for building CNNs.</li>
 </ul>
-<p>I Would probably publish my  model on a platform such as Kaggle or GitHub and make it available to the public soon as  I am free.</p>
+<p>I Would probably publish my model on a platform such as Kaggle or GitHub and make it available to the public soon as I am free.</p>
 <p>And this Entire blog was created using openai&rsquo;s GPT-3 model text-davinci-003 using the openai API and python.</p>
 <p>Why?</p>
 <p>I wanted to demonstrate the capabilities of OpenAI&rsquo;s GPT-3 model and how it can be used to generate text. GPT-3 is a powerful language model that can generate text based on a prompt. By using the OpenAI API and Python, I was able to generate this blog post with minimal effort.(This was also written by the ai. sed :| )</p>
@@ -153,6 +159,7 @@ Also, I used a library called sklearn for splitting the data into training, vali
 	<footer>
 		© 2023 Adharsh  
 		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/3.0/us/80x15.png"></a>
+        <a href ="https://github.com/chiefdinkan/chiefdinkan.github.io">Source</a>
 	</footer>
 </div>
 

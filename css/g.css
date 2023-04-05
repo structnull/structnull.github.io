@@ -1,5 +1,4 @@
 body {
-    font-family: 'Product Sans', sans-serif;
     text-align: center;
 }
 .quote-container {
@@ -15,7 +14,7 @@ body {
   font-size: 1.2rem;
   font-weight: 500;
   color :#787878;
-  font-family: 'Fira Code', 'Nanum Gothic Coding', monospace;
+  font-family: 'bpdots', monospace;
 }
 
 @media screen and (min-width: 600px) {

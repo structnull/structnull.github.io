@@ -6,6 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "firacode": "^1.205.0",
+    "jetbrains-mono": "^1.0.6",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {

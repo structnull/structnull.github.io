@@ -1,9 +1,11 @@
 /* Layout */
 
 body {
-	font-family: 'Fira Code', 'Nanum Gothic Coding', monospace;
-	display: flex;
+	font-family:'Nanum Gothic Coding','bpdots','Jetbrains Mono',monospace;
 	flex-flow: row;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 body > header {
@@ -12,7 +14,6 @@ body > header {
 
 body > header h1 {
 	width: 1.5em;
-	font-size: 10em;
 	margin: 0 auto;
 }
 
@@ -20,15 +21,27 @@ body > header p {
 	color: gray;
 }
 
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
 #main {
+    display: flex;
 	flex: auto;
 	width: 100%;
 	min-height: 100vh;
+    max-width: 100vh;
 	overflow: hidden;
 	min-width: 200px;
 	display: flex;
+    align-items:center;
+    align-self: center;
+    justify-content: center;
 	flex-flow: column;
-
 }
 
 #main > nav, #main > main, #main > footer {
@@ -115,7 +128,7 @@ hr {
 
 @media (max-width: 640px) {
 	#intro h1 {
-		font-size: 7em;
+		font-size: 4em;
 	}
 }
 
@@ -127,6 +140,7 @@ article > header {
 
 article > header time {
 	color: gray;
+    font-style:'Fira code';
 	white-space: nowrap;
 }
 
@@ -139,19 +153,22 @@ article .footnotes {
 }
 
 pre {
-	font-family: 'Fira Code', 'Nanum Gothic Coding', monospace;
-	background-color: #272822;
+	background-color: #000000;
 	color: #f8f8f2;
 	padding: 15px;
 	overflow: auto;
-
-	tab-size: 2;
-	-moz-tab-size: 2;
 }
-
+ 
 p code, li code {
-	color: #930d72;
+	color: #313244;
 }
+
+p,ol,li {
+    font-family:'Jetbrains Mono',monospace;
+    font-size: large;
+    /* text-align:justify; */
+}
+
 
 a, a:visited {
 	color: inherit;
@@ -197,16 +214,19 @@ iframe[src*="youtube-nocookie.com"], iframe.video {
 	flex-flow: row;
 	align-items: center;
 	margin-bottom: 0;
+    font-family:'Jetbrains Mono',monospace;
 }
 
 .article-list article h3 {
 	display: inline-block;
 	margin: 0.5em;
+    font-family:'Jetbrains Mono',monospace;
 }
 
 .article-list article small {
 	font-weight: normal;
 	color: gray;
+    font-family:'Jetbrains Mono',monospace;
 }
 
 .alt-links {
