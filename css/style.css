@@ -33,7 +33,7 @@ h2 {
     display: flex;
 	flex: auto;
 	width: 100%;
-	min-height: 100vh;
+    min-height: 85vh;
     max-width: 100vh;
 	overflow: hidden;
 	min-width: 200px;
@@ -74,8 +74,10 @@ h2 {
 	}
 
 	#main {
-		display: block;
-		min-height: 0;
+		display: flex;
+		min-height: 85vh;
+        align-self: center;
+        justify-content: center;
 	}
 
 	#main > main {
