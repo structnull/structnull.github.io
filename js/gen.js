@@ -12,7 +12,7 @@ var quotes = [
 "The world is not beautiful, and that in a way, lends it a sort of beauty. -kino",
 "Fear is freedom! Subjugation is liberation! Contradiction is truth! Those are the facts of this world! And you will all surrender to them, you pigs in human clothing! - Satsuki Kiryuin",
 "The paucity and preponderance of money is the potential difference that keeps the circuit of life functioning. As such, it is safe to surmise that money does give happiness. Although not always, money is akin to a pillar that affluent people can lean onto when shit goes haywire. -WishWash ball jo-knee",
-"If you are rich, you can be a bitch. -Viswas paul jhonny",
+"If you are rich, you can be a bitch. -Viswas paul johny",
 "I am the great mighty poo and I'm going to throw my shit at you. - The Great Mighty Poo, Conker's Bad Fur Day",
 "The pleasure of a dream is that it's a fantasy. If it happens, it was never a dream to begin with! - Kuja, Final Fantasy IX",
 "The world is indeed full of peril, and in it there are many dark places; but still there is much that is fair, and though in all lands love is now mingled with grief, it grows perhaps the greater. - J.R.R. Tolkien",
