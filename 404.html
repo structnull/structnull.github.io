@@ -1,47 +1,63 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>404 Error - Page Not Found</title>
-        <link rel="stylesheet" href="https://chiefdinkan.github.io/css/bpdotregular.css" type="text/css" charset="utf-8" />
-	</head>
-	<style>
-		.error-container {
-			text-align: center;
-			margin: 50px auto;
+	<link rel="stylesheet" href="404.css" />
+	<link rel="stylesheet" href="https://chiefdinkan.github.io/css/style.css" />
+	<link
+		rel="stylesheet"
+		href="https://chiefdinkan.github.io/css/bpdotregular.css"
+		type="text/css"
+		charset="utf-8"
+	/>
+	<h1 data-value="PAGE NOT FOUND">PAGE NOT FOUND</h1>
+	<p>
+		You can either go to <a href="https://chiefdinkan.github.io/">home</a> or refresh
+	</p>
+	<script>
+		const letters = "ERRORRR"
+		let interval = null
+		document.querySelector("h1").onmouseover = (event) => {
+			let iteration = 0
+			clearInterval(interval)
+			interval = setInterval(() => {
+				event.target.innerText = event.target.innerText
+					.split("")
+					.map((letter, index) => {
+						if (index < iteration) {
+							return event.target.dataset.value[index]
+						}
+
+						return letters[Math.floor(Math.random() * 6)]
+					})
+					.join("")
+				if (iteration >= event.target.dataset.value.length) {
+					clearInterval(interval)
+				}
+				iteration += 1 / 3
+			}, 50)
 		}
+	</script>
+	<style>
 		body {
-			background-color: black;
+			display: grid;
+			place-items: center;
+			height: 100vh;
+			margin: 0rem;
+			overflow: hidden;
 		}
 		h1 {
-			color: #ff0000;
 			font-family: "bpdots", monospace;
+			font-size: clamp(3rem, 10vw, 10rem);
+			color: grey;
+			padding: 0rem clamp(1rem, 2vw, 3rem);
+			border-radius: clamp(0.4rem, 0.75vw, 1rem);
 		}
-
-		h2 {
-			color: white;
-			font-size: 20px;
-			font-family: "bpdots", monospace;
+		h1:hover {
+			color: #313244;
 		}
 		p {
-			color: white;
 			font-family: "bpdots", monospace;
-		}
-		img {
-			width: 50%;
+			font-size: 1.3em;
+			color: grey;
 		}
 	</style>
-	<body>
-		<div class="error-container">
-			<h1>404 Error</h1>
-			<h2>Sorry, this page is lost in space.</h2>
-			<img
-				src="https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif"
-				alt="Lost in space gif"
-			/>
-			<p>
-				Don't worry, you can still <a href="/">go home</a> or try
-				searching for what you're looking for.
-			</p>
-		</div>
-	</body>
 </html>
