@@ -35,7 +35,7 @@ h2 {
 	width: 100%;
 	min-height: 85vh;
 	max-width: 100vh;
-	overflow: hidden;
+	overflow: visible;
 	min-width: 200px;
 	display: flex;
 	align-items: center;
@@ -81,6 +81,10 @@ h2 {
 		font-size: small;
 		/* text-align:justify; */
 	}
+    pre{
+        font-size:12px;
+        
+    }
 	#main {
 		display: flex;
 		min-height: 85vh;
@@ -161,7 +165,7 @@ article .footnotes {
 }
 
 pre {
-	background-color: #000000;
+	background-color: #141414;
 	color: #f8f8f2;
 	padding: 15px;
 	overflow: auto;

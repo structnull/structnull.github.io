@@ -7,10 +7,102 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/chiefdinkan&#34;&gt;Adharsh&lt;/a&gt; 2022-23</copyright>
-    <lastBuildDate>Thu, 30 Mar 2023 22:59:12 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 27 Apr 2023 00:30:26 +0530</lastBuildDate>
     
         <atom:link href="https://chiefdinkan.github.io/weird/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Nvim on immutable distro/environment</title>
+      <link>https://chiefdinkan.github.io/weird/nvim/</link>
+      <pubDate>Thu, 27 Apr 2023 00:30:26 +0530</pubDate>
+      
+      <guid>https://chiefdinkan.github.io/weird/nvim/</guid>
+      <description>&lt;p&gt;what is dis ? ==&amp;gt; le script to install nvim appimage on a distro without sudo access&lt;/p&gt;
+&lt;p&gt;why? ==&amp;gt; coz my lab teacher wont give me sudo access&lt;/p&gt;
+&lt;p&gt;what does this do? ==&amp;gt; curls the nvim binary and install it in $HOME/bin/ and configures a sane init.vim file&lt;/p&gt;
+&lt;h2 id=&#34;le-script&#34;&gt;LE SCRIPT&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#!/bin/bash
+
+# Define the URL to download the latest stable release of Neovim for Linux.
+NEOVIM_URL=&amp;#34;https://github.com/neovim/neovim/releases/latest/download/nvim.appimage&amp;#34;
+
+# Define the path where you want to store the Neovim executable.
+NEOVIM_PATH=&amp;#34;$HOME/bin/nvim&amp;#34;
+
+# Define the path where you want to store the Neovim configuration file.
+NEOVIM_CONFIG_PATH=&amp;#34;$HOME/.config/nvim/init.vim&amp;#34;
+
+# Create the directories if they don&amp;#39;t exist.
+if [ ! -d &amp;#34;$HOME/bin&amp;#34; ]; then
+    mkdir &amp;#34;$HOME/bin&amp;#34;
+fi
+
+if [ ! -d &amp;#34;$HOME/.config/nvim&amp;#34; ]; then
+    mkdir -p &amp;#34;$HOME/.config/nvim&amp;#34;
+fi # Download the latest stable release of Neovim to the specified path.
+curl -L &amp;#34;$NEOVIM_URL&amp;#34; -o &amp;#34;$NEOVIM_PATH&amp;#34;
+
+# Make the downloaded file executable.
+chmod +x &amp;#34;$NEOVIM_PATH&amp;#34;
+
+# Add the directory containing the Neovim executable to your PATH environment variable.
+echo &amp;#39;export PATH=&amp;#34;$HOME/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bashrc
+
+# Source your .bashrc file to apply the changes.
+source ~/.bashrc
+
+# Create an alias for neovim so that it can be invoked by typing &amp;#34;nvim&amp;#34; in the terminal.
+echo &amp;#39;alias nvim=&amp;#34;$HOME/bin/nvim&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bashrc
+
+# Create the Neovim configuration file with some quality-of-life defaults and settings.
+cat &amp;lt;&amp;lt; EOF &amp;gt; &amp;#34;$NEOVIM_CONFIG_PATH&amp;#34;
+&amp;#34; Quality-of-life settings
+set number
+set relativenumber
+set cursorline
+set showmode
+set autoindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+&amp;#34; Appearance
+set termguicolors &amp;#34; enable true color support
+set background=dark &amp;#34; set dark mode by default
+
+&amp;#34; Cursor and scrolling
+set scrolloff=8 &amp;#34; keep 8 lines of context when scrolling
+set sidescrolloff=8 &amp;#34; keep 8 columns of context when scrolling horizontally
+set cursorlineopt=both &amp;#34; highlight both the current line and column
+set whichwrap+=&amp;lt;,&amp;gt;,h,l &amp;#34; allow horizontal scrolling in addition to vertical scrolling
+
+&amp;#34; Search
+set hlsearch &amp;#34; highlight search matches
+set incsearch &amp;#34; highlight search matches as you type
+set ignorecase &amp;#34; case-insensitive searching
+set smartcase &amp;#34; case-sensitive searching if query contains uppercase characters
+
+&amp;#34; Miscellaneous
+set hidden &amp;#34; allows you to switch buffers without saving first
+set laststatus=2 &amp;#34; always show status line
+set showtabline=2 &amp;#34; always show tab line
+set mouse=a &amp;#34; enable mouse support
+set completeopt=menuone,noinsert,noselect &amp;#34; nicer completion menu
+
+&amp;#34; Syntax highlighting
+syntax enable
+
+&amp;#34; Clipboard integration (requires xclip)
+set clipboard+=unnamedplus
+EOF
+
+echo &amp;#34;Neovim has been successfully installed and configured. You can now use it by typing &amp;#39;nvim&amp;#39; in the terminal.&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;</description>
+      
+      
+    </item>
     
     <item>
       <title>Games</title>
