@@ -108,7 +108,7 @@ hr {
 @media (prefers-color-scheme: dark) {
 	html {
 		background-color: black;
-		color: #dfdfdf;
+		color: #e8e6e3;
 	}
 
 	article img:not([src$=".jpg"]):not([src$=".jpeg"]):not(.opaque) {
