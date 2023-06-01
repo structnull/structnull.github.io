@@ -187,6 +187,76 @@ set clipboard+=unnamedplus
 EOF
 
 echo &#34;Neovim has been successfully installed and configured. You can now use it by typing &#39;nvim&#39; in the terminal.&#34;
+</code></pre><h2 id="the-wget-version---">The wget version &ndash;&gt;</h2>
+<pre tabindex="0"><code>#!/bin/bash
+
+NEOVIM_URL=&#34;https://github.com/neovim/neovim/releases/latest/download/nvim.appimage&#34;
+
+NEOVIM_PATH=&#34;$HOME/bin/nvim&#34;
+
+NEOVIM_CONFIG_PATH=&#34;$HOME/.config/nvim/init.vim&#34;
+
+if [ ! -d &#34;$HOME/bin&#34; ]; then
+    mkdir &#34;$HOME/bin&#34;
+fi
+
+if [ ! -d &#34;$HOME/.config/nvim&#34; ]; then
+    mkdir -p &#34;$HOME/.config/nvim&#34;
+fi 
+
+wget &#34;$NEOVIM_URL&#34; -O &#34;$NEOVIM_PATH&#34;
+
+chmod +x &#34;$NEOVIM_PATH&#34;
+
+echo &#39;export PATH=&#34;$HOME/bin:$PATH&#34;&#39; &gt;&gt; ~/.bashrc
+
+source ~/.bashrc
+
+echo &#39;alias nvim=&#34;$HOME/bin/nvim&#34;&#39; &gt;&gt; ~/.bashrc
+
+cat &lt;&lt; EOF &gt; &#34;$NEOVIM_CONFIG_PATH&#34;
+&#34; Quality-of-life settings
+set number
+set relativenumber
+set cursorline
+set showmode
+set autoindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+&#34; Appearance
+set termguicolors &#34; enable true color support
+set background=dark &#34; set dark mode by default
+
+&#34; Cursor and scrolling
+set scrolloff=8 &#34; keep 8 lines of context when scrolling
+set sidescrolloff=8 &#34; keep 8 columns of context when scrolling horizontally
+set cursorlineopt=both &#34; highlight both the current line and column
+set whichwrap+=&lt;,&gt;,h,l &#34; allow horizontal scrolling in addition to vertical scrolling
+
+&#34; Search
+set hlsearch &#34; highlight search matches
+set incsearch &#34; highlight search matches as you type
+set ignorecase &#34; case-insensitive searching
+set smartcase &#34; case-sensitive searching if query contains uppercase characters
+
+&#34; Miscellaneous
+set hidden &#34; allows you to switch buffers without saving first
+set laststatus=2 &#34; always show status line
+set showtabline=2 &#34; always show tab line
+set mouse=a &#34; enable mouse support
+set completeopt=menuone,noinsert,noselect &#34; nicer completion menu
+
+&#34; Syntax highlighting
+syntax enable
+
+&#34; Clipboard integration (requires xclip)
+set clipboard+=unnamedplus
+EOF
+
+echo &#34;Neovim has been successfully installed and configured. You can now use it by typing &#39;nvim&#39; in the terminal.&#34;
 </code></pre>
     </div>
 	

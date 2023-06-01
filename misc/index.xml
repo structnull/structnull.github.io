@@ -99,6 +99,76 @@ set clipboard+=unnamedplus
 EOF
 
 echo &amp;#34;Neovim has been successfully installed and configured. You can now use it by typing &amp;#39;nvim&amp;#39; in the terminal.&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;the-wget-version---&#34;&gt;The wget version &amp;ndash;&amp;gt;&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#!/bin/bash
+
+NEOVIM_URL=&amp;#34;https://github.com/neovim/neovim/releases/latest/download/nvim.appimage&amp;#34;
+
+NEOVIM_PATH=&amp;#34;$HOME/bin/nvim&amp;#34;
+
+NEOVIM_CONFIG_PATH=&amp;#34;$HOME/.config/nvim/init.vim&amp;#34;
+
+if [ ! -d &amp;#34;$HOME/bin&amp;#34; ]; then
+    mkdir &amp;#34;$HOME/bin&amp;#34;
+fi
+
+if [ ! -d &amp;#34;$HOME/.config/nvim&amp;#34; ]; then
+    mkdir -p &amp;#34;$HOME/.config/nvim&amp;#34;
+fi 
+
+wget &amp;#34;$NEOVIM_URL&amp;#34; -O &amp;#34;$NEOVIM_PATH&amp;#34;
+
+chmod +x &amp;#34;$NEOVIM_PATH&amp;#34;
+
+echo &amp;#39;export PATH=&amp;#34;$HOME/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bashrc
+
+source ~/.bashrc
+
+echo &amp;#39;alias nvim=&amp;#34;$HOME/bin/nvim&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bashrc
+
+cat &amp;lt;&amp;lt; EOF &amp;gt; &amp;#34;$NEOVIM_CONFIG_PATH&amp;#34;
+&amp;#34; Quality-of-life settings
+set number
+set relativenumber
+set cursorline
+set showmode
+set autoindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+&amp;#34; Appearance
+set termguicolors &amp;#34; enable true color support
+set background=dark &amp;#34; set dark mode by default
+
+&amp;#34; Cursor and scrolling
+set scrolloff=8 &amp;#34; keep 8 lines of context when scrolling
+set sidescrolloff=8 &amp;#34; keep 8 columns of context when scrolling horizontally
+set cursorlineopt=both &amp;#34; highlight both the current line and column
+set whichwrap+=&amp;lt;,&amp;gt;,h,l &amp;#34; allow horizontal scrolling in addition to vertical scrolling
+
+&amp;#34; Search
+set hlsearch &amp;#34; highlight search matches
+set incsearch &amp;#34; highlight search matches as you type
+set ignorecase &amp;#34; case-insensitive searching
+set smartcase &amp;#34; case-sensitive searching if query contains uppercase characters
+
+&amp;#34; Miscellaneous
+set hidden &amp;#34; allows you to switch buffers without saving first
+set laststatus=2 &amp;#34; always show status line
+set showtabline=2 &amp;#34; always show tab line
+set mouse=a &amp;#34; enable mouse support
+set completeopt=menuone,noinsert,noselect &amp;#34; nicer completion menu
+
+&amp;#34; Syntax highlighting
+syntax enable
+
+&amp;#34; Clipboard integration (requires xclip)
+set clipboard+=unnamedplus
+EOF
+
+echo &amp;#34;Neovim has been successfully installed and configured. You can now use it by typing &amp;#39;nvim&amp;#39; in the terminal.&amp;#34;
 &lt;/code&gt;&lt;/pre&gt;</description>
       
       
