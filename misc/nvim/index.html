@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Nvim on immutable distro/environment · 愛</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="canonical" href="https://chiefdinkan.github.io/misc/nvim/">
+
+	
+
+	<link rel="stylesheet" href="https://chiefdinkan.github.io/css/bpdotregular.css" type="text/css" charset="utf-8" />
+	<link rel="stylesheet" href="https://chiefdinkan.github.io/node_modules/jetbrains-mono/css/jetbrains-mono.css">
+	<link rel="stylesheet" href="https://chiefdinkan.github.io/node_modules/normalize.css/normalize.css">
+	<link rel="stylesheet" href="https://chiefdinkan.github.io/css/nanum-gothic-coding.css">
+	<link rel="stylesheet" href="https://chiefdinkan.github.io/css/style.css">
+	<script src="https://chiefdinkan.github.io/js/scroll.js"></script>
+</head>
+
+<body>
+
+
+<header class="header">
+    <div class="header__title-container">
+        <h1 class="header__title">
+            <span class="emoji"></span>
+        </h1>
+    </div>
+</header>
+
+<div id="main">
+    <nav>
+	<div class="nav-container"><a href="https://chiefdinkan.github.io/">home</a> &bullet;
+	<a href="https://chiefdinkan.github.io/blog">blog</a> &bullet;
+	<a href="https://chiefdinkan.github.io/misc">misc</a> &bullet;
+	<a rel="me" href="https://chiefdinkan.github.io/about">about</a> 
+</nav>
+
+<style>
+
+.nav-container {
+    display: flex;
+    font-style: 'bpdots',monospace;
+    justify-content: center;
+    align-items: center; 
+    flex-wrap: nowrap;
+}
+nav a {
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0 10px;
+    transition: all 0.2s ease;
+    flex: 1;
+    align-items: center; 
+}
+nav a:hover {
+    text-decoration: underline;
+    color: #725E9C;
+    transform: scale(1.1);
+}
+&bullet; {
+    font-size: inherit;
+    font-style: bold;
+}
+@media screen and (max-width: 600px) {
+    .nav-container{
+        flex-wrap: wrap;
+    }
+    nav a{
+        width: 100%;
+        text-align: center;
+        font-size: 1.3em;
+    }
+}
+</style>
+
+<main>
+<script src="https://chiefdinkan.github.io/js/emoji.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@600&display=swap');
+.header {
+    padding: 20px;
+    text-align: center;
+}
+.header__title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.emoji{
+font-family: 'Noto Emoji', sans-serif;
+}
+
+.header__title {
+    font-size: 78px;
+    font-weight: bold;
+    text-shadow: 2px 2px #333;
+}
+</style>
+
+
+
+<article >
+    <div class="Content">
+        <header>
+		<h1>Nvim on immutable distro/environment</h1>
+		
+			<time datetime='2023-04-27T00:30:26&#43;05:30'>2023-04-27</time>
+		
+	</header>
+	<p>what is dis ? ==&gt; le script to install nvim appimage on a distro without sudo access</p>
+<p>why? ==&gt; coz my lab teacher wont give me sudo access</p>
+<p>what does this do? ==&gt; curls the nvim binary and install it in $HOME/bin/ and configures a sane init.vim file</p>
+<h2 id="le-script">LE SCRIPT</h2>
+<pre tabindex="0"><code>#!/bin/bash
+
+# Define the URL to download the latest stable release of Neovim for Linux.
+NEOVIM_URL=&#34;https://github.com/neovim/neovim/releases/latest/download/nvim.appimage&#34;
+
+# Define the path where you want to store the Neovim executable.
+NEOVIM_PATH=&#34;$HOME/bin/nvim&#34;
+
+# Define the path where you want to store the Neovim configuration file.
+NEOVIM_CONFIG_PATH=&#34;$HOME/.config/nvim/init.vim&#34;
+
+# Create the directories if they don&#39;t exist.
+if [ ! -d &#34;$HOME/bin&#34; ]; then
+    mkdir &#34;$HOME/bin&#34;
+fi
+
+if [ ! -d &#34;$HOME/.config/nvim&#34; ]; then
+    mkdir -p &#34;$HOME/.config/nvim&#34;
+fi # Download the latest stable release of Neovim to the specified path.
+curl -L &#34;$NEOVIM_URL&#34; -o &#34;$NEOVIM_PATH&#34;
+
+# Make the downloaded file executable.
+chmod +x &#34;$NEOVIM_PATH&#34;
+
+# Add the directory containing the Neovim executable to your PATH environment variable.
+echo &#39;export PATH=&#34;$HOME/bin:$PATH&#34;&#39; &gt;&gt; ~/.bashrc
+
+# Source your .bashrc file to apply the changes.
+source ~/.bashrc
+
+# Create an alias for neovim so that it can be invoked by typing &#34;nvim&#34; in the terminal.
+echo &#39;alias nvim=&#34;$HOME/bin/nvim&#34;&#39; &gt;&gt; ~/.bashrc
+
+# Create the Neovim configuration file with some quality-of-life defaults and settings.
+cat &lt;&lt; EOF &gt; &#34;$NEOVIM_CONFIG_PATH&#34;
+&#34; Quality-of-life settings
+set number
+set relativenumber
+set cursorline
+set showmode
+set autoindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+&#34; Appearance
+set termguicolors &#34; enable true color support
+set background=dark &#34; set dark mode by default
+
+&#34; Cursor and scrolling
+set scrolloff=8 &#34; keep 8 lines of context when scrolling
+set sidescrolloff=8 &#34; keep 8 columns of context when scrolling horizontally
+set cursorlineopt=both &#34; highlight both the current line and column
+set whichwrap+=&lt;,&gt;,h,l &#34; allow horizontal scrolling in addition to vertical scrolling
+
+&#34; Search
+set hlsearch &#34; highlight search matches
+set incsearch &#34; highlight search matches as you type
+set ignorecase &#34; case-insensitive searching
+set smartcase &#34; case-sensitive searching if query contains uppercase characters
+
+&#34; Miscellaneous
+set hidden &#34; allows you to switch buffers without saving first
+set laststatus=2 &#34; always show status line
+set showtabline=2 &#34; always show tab line
+set mouse=a &#34; enable mouse support
+set completeopt=menuone,noinsert,noselect &#34; nicer completion menu
+
+&#34; Syntax highlighting
+syntax enable
+
+&#34; Clipboard integration (requires xclip)
+set clipboard+=unnamedplus
+EOF
+
+echo &#34;Neovim has been successfully installed and configured. You can now use it by typing &#39;nvim&#39; in the terminal.&#34;
+</code></pre><h2 id="the-wget-version---">The wget version &ndash;&gt;</h2>
+<pre tabindex="0"><code>#!/bin/bash
+
+NEOVIM_URL=&#34;https://github.com/neovim/neovim/releases/latest/download/nvim.appimage&#34;
+
+NEOVIM_PATH=&#34;$HOME/bin/nvim&#34;
+
+NEOVIM_CONFIG_PATH=&#34;$HOME/.config/nvim/init.vim&#34;
+
+if [ ! -d &#34;$HOME/bin&#34; ]; then
+    mkdir &#34;$HOME/bin&#34;
+fi
+
+if [ ! -d &#34;$HOME/.config/nvim&#34; ]; then
+    mkdir -p &#34;$HOME/.config/nvim&#34;
+fi 
+
+wget &#34;$NEOVIM_URL&#34; -O &#34;$NEOVIM_PATH&#34;
+
+chmod +x &#34;$NEOVIM_PATH&#34;
+
+echo &#39;export PATH=&#34;$HOME/bin:$PATH&#34;&#39; &gt;&gt; ~/.bashrc
+
+source ~/.bashrc
+
+echo &#39;alias nvim=&#34;$HOME/bin/nvim&#34;&#39; &gt;&gt; ~/.bashrc
+
+cat &lt;&lt; EOF &gt; &#34;$NEOVIM_CONFIG_PATH&#34;
+&#34; Quality-of-life settings
+set number
+set relativenumber
+set cursorline
+set showmode
+set autoindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+&#34; Appearance
+set termguicolors &#34; enable true color support
+set background=dark &#34; set dark mode by default
+
+&#34; Cursor and scrolling
+set scrolloff=8 &#34; keep 8 lines of context when scrolling
+set sidescrolloff=8 &#34; keep 8 columns of context when scrolling horizontally
+set cursorlineopt=both &#34; highlight both the current line and column
+set whichwrap+=&lt;,&gt;,h,l &#34; allow horizontal scrolling in addition to vertical scrolling
+
+&#34; Search
+set hlsearch &#34; highlight search matches
+set incsearch &#34; highlight search matches as you type
+set ignorecase &#34; case-insensitive searching
+set smartcase &#34; case-sensitive searching if query contains uppercase characters
+
+&#34; Miscellaneous
+set hidden &#34; allows you to switch buffers without saving first
+set laststatus=2 &#34; always show status line
+set showtabline=2 &#34; always show tab line
+set mouse=a &#34; enable mouse support
+set completeopt=menuone,noinsert,noselect &#34; nicer completion menu
+
+&#34; Syntax highlighting
+syntax enable
+
+&#34; Clipboard integration (requires xclip)
+set clipboard+=unnamedplus
+EOF
+
+echo &#34;Neovim has been successfully installed and configured. You can now use it by typing &#39;nvim&#39; in the terminal.&#34;
+</code></pre>
+    </div>
+	
+</article>
+<style>
+.Content {
+    margin: 0 auto;  
+}
+
+
+</style>
+
+</main>
+
+<footer>
+	<span>© 2024 Adharsh</span>
+	<a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License"
+			src="https://i.creativecommons.org/l/by/3.0/us/80x15.png"></a>
+	<a href="https://github.com/chiefdinkan/chiefdinkan.github.io">Source</a>
+	<span id="real-time" style="font-family: monospace;"></span>
+</footer>
+
+<script src="/js/time.js"></script>
+</div>
+	</body>
+</html>
+
+

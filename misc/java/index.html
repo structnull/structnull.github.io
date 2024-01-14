@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Java · 愛</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="canonical" href="https://chiefdinkan.github.io/misc/java/">
+
+	
+
+	<link rel="stylesheet" href="https://chiefdinkan.github.io/css/bpdotregular.css" type="text/css" charset="utf-8" />
+	<link rel="stylesheet" href="https://chiefdinkan.github.io/node_modules/jetbrains-mono/css/jetbrains-mono.css">
+	<link rel="stylesheet" href="https://chiefdinkan.github.io/node_modules/normalize.css/normalize.css">
+	<link rel="stylesheet" href="https://chiefdinkan.github.io/css/nanum-gothic-coding.css">
+	<link rel="stylesheet" href="https://chiefdinkan.github.io/css/style.css">
+	<script src="https://chiefdinkan.github.io/js/scroll.js"></script>
+</head>
+
+<body>
+
+
+<header class="header">
+    <div class="header__title-container">
+        <h1 class="header__title">
+            <span class="emoji"></span>
+        </h1>
+    </div>
+</header>
+
+<div id="main">
+    <nav>
+	<div class="nav-container"><a href="https://chiefdinkan.github.io/">home</a> &bullet;
+	<a href="https://chiefdinkan.github.io/blog">blog</a> &bullet;
+	<a href="https://chiefdinkan.github.io/misc">misc</a> &bullet;
+	<a rel="me" href="https://chiefdinkan.github.io/about">about</a> 
+</nav>
+
+<style>
+
+.nav-container {
+    display: flex;
+    font-style: 'bpdots',monospace;
+    justify-content: center;
+    align-items: center; 
+    flex-wrap: nowrap;
+}
+nav a {
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0 10px;
+    transition: all 0.2s ease;
+    flex: 1;
+    align-items: center; 
+}
+nav a:hover {
+    text-decoration: underline;
+    color: #725E9C;
+    transform: scale(1.1);
+}
+&bullet; {
+    font-size: inherit;
+    font-style: bold;
+}
+@media screen and (max-width: 600px) {
+    .nav-container{
+        flex-wrap: wrap;
+    }
+    nav a{
+        width: 100%;
+        text-align: center;
+        font-size: 1.3em;
+    }
+}
+</style>
+
+<main>
+<script src="https://chiefdinkan.github.io/js/emoji.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@600&display=swap');
+.header {
+    padding: 20px;
+    text-align: center;
+}
+.header__title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.emoji{
+font-family: 'Noto Emoji', sans-serif;
+}
+
+.header__title {
+    font-size: 78px;
+    font-weight: bold;
+    text-shadow: 2px 2px #333;
+}
+</style>
+
+
+
+<article >
+    <div class="Content">
+        <header>
+		<h1>Java</h1>
+		
+			<time datetime='2024-01-14T13:14:43&#43;05:30'>2024-01-14</time>
+		
+	</header>
+	<ul>
+<li>Java Library - String Handling:
+<ul>
+<li><a href="https://www.javastring.net/java/string/java-string-constructors">String Constructors</a></li>
+<li><a href="https://www.codingninjas.com/studio/library/special-string-operations-in-java">String Length, Special String Operations - Character Extraction, String Comparison, Searching Strings, Modifying Strings, using valueOf()</a></li>
+<li><a href="https://www.tutorialkart.com/java/java-string-class-constructors-methods/">Comparison of StringBuffer and String</a></li>
+</ul>
+</li>
+<li>Collections framework:
+<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html">Collections overview</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/collections/interfaces/summary.html">Collections Interfaces- Collection Interface, List Interface</a></li>
+</ul>
+</li>
+<li>Collections Class:
+<ul>
+<li><a href="https://www.javatpoint.com/java-arraylist">ArrayList class</a></li>
+<li><a href="http://www.btechsmartclass.com/java/java-Iterator-class.html">Accessing a Collection via an Iterator</a></li>
+</ul>
+</li>
+<li>Event handling:
+<ul>
+<li><a href="https://www.developer.com/project-management/understanding-and-using-the-java-delegation-event-model/">Event Handling Mechanisms, Delegation Event Model, Event Classes, Sources of Events, Event Listener Interfaces, Using the Delegation Model</a></li>
+</ul>
+</li>
+<li>Multithreaded Programming:
+<ul>
+<li><a href="https://www.geeksforgeeks.org/main-thread-java/">The Java Thread Model, The Main Thread</a></li>
+<li><a href="https://www.geeksforgeeks.org/java-threading-programs/">Creating Thread, Creating Multiple Threads, Synchronization, Suspending, Resuming and Stopping Threads</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="cherry-picked-questions---">cherry picked questions &ndash;&gt;</h2>
+<ol>
+<li>
+<p>What is the difference between AWT and Swing?</p>
+<p>AWT (Abstract Window Toolkit) and Swing are both used to develop GUI-based applications in Java, but they have some key differences:</p>
+<ol>
+<li><strong>API Package</strong>: AWT component classes are provided by the <code>java.awt</code> package, while Swing component classes are provided by the <code>javax.swing</code> package¹².</li>
+<li><strong>Operating System Dependency</strong>: AWT components are mainly dependent on the operating system, whereas Swing components are not. Swing is completely scripted in Java¹².</li>
+<li><strong>Weightiness</strong>: AWT is considered heavyweight since it uses the resources of the operating system. On the other hand, Swing is mostly lightweight since it doesn&rsquo;t need any operating system object for processing¹².</li>
+<li><strong>Appearance</strong>: The appearance of AWT components is mainly not configurable and generally depends on the operating system&rsquo;s look and feel. In contrast, Swing components are configurable and support pluggable look and feel².</li>
+<li><strong>Number of Components</strong>: AWT provides a smaller number of components compared to Swing. Swing provides a greater number of components such as list, scroll panes, tables, color choosers, etc².</li>
+<li><strong>Functionality and Implementation</strong>: AWT serves as a thin layer of development on top of the OS, and many features need to be completely developed by the developer. In contrast, Swing components provide higher-level inbuilt functions for the developer that facilitate less code writing².</li>
+<li><strong>Memory and Speed</strong>: AWT needs a higher amount of memory for execution and is slower than Swing in terms of performance. Swing needs less memory space compared to AWT and is faster².</li>
+</ol>
+<p>In summary, while AWT is Java&rsquo;s original platform-dependent windowing, graphics, and user interface widget toolkit, Swing is a GUI widget toolkit for Java that is an extension of AWT³⁵. Swing also has richer functionality, and for GUI-intensive work, AWT can feel primitive compared to Swing⁴.</p>
+</li>
+<li>
+<p>what does this keyword do ?</p>
+<p>In Java, the <code>this</code> keyword is a reference variable that refers to the current object. It is used to represent the instance of the class in which it appears. Here are some common uses of the <code>this</code> keyword:</p>
+<ol>
+<li>
+<p><strong>To distinguish instance variables from local variables:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Example</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> x;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setX</span>(<span style="color:#66d9ef">int</span> x) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Use &#39;this&#39; to refer to the instance variable &#39;x&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> x;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In the above example, <code>this.x</code> refers to the instance variable <code>x</code>, while <code>x</code> refers to the local variable passed as a parameter.</p>
+</li>
+<li>
+<p><strong>To invoke the current object&rsquo;s method:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Example</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">display</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Inside display method&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">callDisplay</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Use &#39;this&#39; to invoke the current object&#39;s method</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">display</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In the <code>callDisplay</code> method, <code>this.display()</code> is equivalent to <code>display()</code>.</p>
+</li>
+<li>
+<p><strong>To pass the current object as a parameter to other methods:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Example</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">processObject</span>(Example obj) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ...</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">someMethod</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Use &#39;this&#39; to pass the current object to another method</span>
+</span></span><span style="display:flex;"><span>        processObject(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Here, <code>this</code> is passed as an argument to the <code>processObject</code> method.</p>
+</li>
+<li>
+<p><strong>In constructors to call another constructor in the same class:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Example</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> x;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> y;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Example() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Call another constructor in the same class using &#39;this&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(0, 0);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Example(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> x;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> y;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<p>In the above example, the <code>Example()</code> constructor calls another constructor using <code>this(0, 0)</code>.
+The <code>this</code> keyword is especially useful in situations where instance variables and parameters have the same name, helping to differentiate between the two.</p>
+</li>
+</ol>
+<h3 id="primitive-data-types">Primitive Data Types</h3>
+<ol>
+<li>
+<p><strong>What are the primitive data types in Java?</strong></p>
+<p>Java has four primitive data types:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">float</span>, <span style="color:#66d9ef">char</span>, <span style="color:#66d9ef">boolean</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Explain the difference between int and float data types.</strong></p>
+<p>The <code>int</code> data type is used for representing integers, while the <code>float</code> data type is used for representing floating-point numbers, which can have decimal parts.</p>
+</li>
+<li>
+<p><strong>What is a literal in Java?</strong></p>
+<p>A literal in Java is a representation of a fixed value in the source code. For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> number <span style="color:#f92672">=</span> 42; <span style="color:#75715e">// Here, 42 is a literal.</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>How can you convert a float to an int in Java?</strong></p>
+<p>You can convert a float to an int using type casting:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> floatNumber <span style="color:#f92672">=</span> 3.<span style="color:#a6e22e">14f</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> intNumber <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int</span>) floatNumber;
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="operators">Operators</h3>
+<ol start="5">
+<li>
+<p><strong>List and briefly explain the different types of operators in Java.</strong></p>
+<ul>
+<li>Arithmetic Operators: Perform basic arithmetic operations.</li>
+<li>Bitwise Operators: Perform bit-level operations.</li>
+<li>Relational Operators: Compare values.</li>
+<li>Boolean Logical Operators: Perform logical operations.</li>
+<li>Assignment Operator: Assigns a value to a variable.</li>
+<li>Conditional (Ternary) Operator: A shorthand for if-else statements.</li>
+</ul>
+</li>
+<li>
+<p><strong>What is the difference between &lsquo;==&rsquo; and &rsquo;equals()&rsquo; in Java?</strong></p>
+<p>The <code>==</code> operator checks for reference equality, i.e., whether two objects refer to the same memory location. The <code>equals()</code> method is used for content equality, and it needs to be explicitly overridden in classes where content comparison is meaningful.</p>
+</li>
+</ol>
+<h3 id="control-statements">Control Statements</h3>
+<ol start="7">
+<li>
+<p><strong>Differentiate between selection and iteration statements in Java.</strong></p>
+<ul>
+<li>Selection Statements: Used for decision-making (e.g., if, switch).</li>
+<li>Iteration Statements: Used for loop execution (e.g., for, while, do-while).</li>
+</ul>
+</li>
+<li>
+<p><strong>Explain the purpose of the &lsquo;break&rsquo; statement in Java.</strong></p>
+<p>The <code>break</code> statement is used to terminate the loop or switch statement it is in. It is often used to exit a loop prematurely based on a certain condition.</p>
+</li>
+</ol>
+<h3 id="object-oriented-programming-oop-in-java">Object-Oriented Programming (OOP) in Java</h3>
+<ol start="9">
+<li>
+<p><strong>What is the significance of the &rsquo;this&rsquo; keyword in Java?</strong></p>
+<p>The <code>this</code> keyword is a reference to the current object. It is used to differentiate instance variables from local variables when they have the same name.</p>
+</li>
+<li>
+<p><strong>Explain the concept of method overloading in Java.</strong></p>
+<p>Method overloading allows a class to have multiple methods with the same name but different parameter lists (different types or different number of parameters).</p>
+</li>
+</ol>
+<h3 id="inheritance">Inheritance</h3>
+<ol start="12">
+<li>
+<p><strong>Explain the concept of a &ldquo;protected&rdquo; member in Java. Provide an example of its usage.</strong></p>
+<p>The <code>protected</code> access modifier allows members (fields and methods) to be accessed within the same package and by subclasses outside the package. Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Parent</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">int</span> protectedField;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">protectedMethod</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Method implementation</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In a subclass within the same package:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Child</span> <span style="color:#66d9ef">extends</span> Parent {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">accessProtected</span>() {
+</span></span><span style="display:flex;"><span>        protectedField <span style="color:#f92672">=</span> 42;       <span style="color:#75715e">// Accessing protected field</span>
+</span></span><span style="display:flex;"><span>        protectedMethod();          <span style="color:#75715e">// Accessing protected method</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="abstract-classes-and-interfaces">Abstract Classes and Interfaces</h3>
+<ol start="13">
+<li>
+<p><strong>Compare and contrast abstract classes and interfaces in Java. Provide a scenario where you would prefer using an abstract class over an interface.</strong></p>
+<ul>
+<li>
+<p><strong>Abstract Classes:</strong></p>
+<ul>
+<li>Can have both abstract and concrete methods.</li>
+<li>Can have instance variables (fields).</li>
+<li>Can have constructors.</li>
+<li>Support single inheritance.</li>
+</ul>
+</li>
+<li>
+<p><strong>Interfaces:</strong></p>
+<ul>
+<li>Can only have abstract methods until Java 8 (default methods added in Java 8).</li>
+<li>Can&rsquo;t have instance variables (fields) until Java 9 (static and default methods allowed).</li>
+<li>No constructors.</li>
+<li>Support multiple inheritance.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Scenario:</strong>
+Use an abstract class when you have a base class with common functionality and want to provide a default implementation for some methods. Use an interface when you want to enforce a contract for multiple unrelated classes.</p>
+</li>
+</ol>
+<h3 id="exception-handling">Exception Handling</h3>
+<ol start="14">
+<li>
+<p><strong>What is the purpose of the <code>throws</code> clause in a Java method signature? Provide an example.</strong></p>
+<p>The <code>throws</code> clause is used to declare exceptions that a method might throw. It informs the caller of the method about the potential exceptions it needs to handle or propagate.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Example</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">someMethod</span>() <span style="color:#66d9ef">throws</span> CustomException {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Method implementation that may throw CustomException</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomException</span> <span style="color:#66d9ef">extends</span> Exception {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Custom exception class</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="advanced-topics">Advanced Topics</h3>
+<ol start="15">
+<li>
+<p><strong>Explain the concept of functional interfaces in Java. Provide an example of a lambda expression using a functional interface.</strong></p>
+<p>A functional interface is an interface with exactly one abstract method. It can have multiple default or static methods. Functional interfaces are often used in conjunction with lambda expressions to enable concise expression of instances.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@FunctionalInterface</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">MathOperation</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">operate</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LambdaExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        MathOperation addition <span style="color:#f92672">=</span> (a, b) <span style="color:#f92672">-&gt;</span> a <span style="color:#f92672">+</span> b;
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(addition.<span style="color:#a6e22e">operate</span>(5, 3));  <span style="color:#75715e">// Output: 8</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="advanced-object-oriented-programming-oop-concepts">Advanced Object-Oriented Programming (OOP) Concepts</h3>
+<ol start="16">
+<li>
+<p><strong>Explain the concept of composition in Java. Provide an example of a class utilizing composition.</strong></p>
+<p>Composition is a design technique where a class includes objects of other classes, rather than inheriting from them. This promotes code reusability and flexibility.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Engine</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Implementation of starting the engine</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Engine engine;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Car</span>(Engine engine) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">engine</span> <span style="color:#f92672">=</span> engine;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">startCar</span>() {
+</span></span><span style="display:flex;"><span>        engine.<span style="color:#a6e22e">start</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Other car-specific operations</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="java-streams-and-functional-programming">Java Streams and Functional Programming</h3>
+<ol start="17">
+<li>
+<p><strong>What are Java Streams, and how are they used for functional programming? Provide an example.</strong></p>
+<p>Java Streams provide a concise and functional approach to processing collections. They allow operations to be performed on elements in a declarative manner.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Arrays;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StreamExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> words <span style="color:#f92672">=</span> Arrays.<span style="color:#a6e22e">asList</span>(<span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#e6db74">&#34;banana&#34;</span>, <span style="color:#e6db74">&#34;orange&#34;</span>, <span style="color:#e6db74">&#34;grape&#34;</span>, <span style="color:#e6db74">&#34;peach&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> count <span style="color:#f92672">=</span> words.<span style="color:#a6e22e">stream</span>()
+</span></span><span style="display:flex;"><span>                         .<span style="color:#a6e22e">filter</span>(word <span style="color:#f92672">-&gt;</span> word.<span style="color:#a6e22e">length</span>() <span style="color:#f92672">&gt;</span> 5)
+</span></span><span style="display:flex;"><span>                         .<span style="color:#a6e22e">count</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Number of words with length &gt; 5: &#34;</span> <span style="color:#f92672">+</span> count);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="concurrency-in-java">Concurrency in Java</h3>
+<ol start="18">
+<li>
+<p><strong>Explain the concept of thread safety in Java. Provide an example of ensuring thread safety.</strong></p>
+<p>Thread safety ensures that a piece of code or an object can be safely used by multiple threads without causing unexpected behavior. Synchronization is often used to achieve thread safety.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Counter</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>        count<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getCount</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> count;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="packages-and-interfaces">Packages and Interfaces</h3>
+<ol start="19">
+<li>
+<p><strong>Discuss the different access protection levels in Java. Provide an example demonstrating the use of access modifiers.</strong></p>
+<p>Access modifiers (<code>public</code>, <code>private</code>, <code>protected</code>, and default) control the visibility of classes, methods, and fields.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// MyClass.java</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyClass</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> publicVar;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> privateVar;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">int</span> protectedVar;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> defaultVar;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">publicMethod</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Method implementation</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">privateMethod</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Method implementation</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="exception-handling-1">Exception Handling</h3>
+<ol start="20">
+<li>
+<p><strong>Explain the purpose of the <code>finally</code> block in Java exception handling. Provide an example where the <code>finally</code> block is crucial.</strong></p>
+<p>The <code>finally</code> block is used to ensure that a specific piece of code is always executed, whether an exception is thrown or not. It is crucial for cleanup operations.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FileProcessor</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">processFile</span>(String fileName) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Code to read and process the file</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// ...</span>
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (IOException e) {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Handle the exception</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// ...</span>
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">finally</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Close resources, like file streams, irrespective of exceptions</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// This block always executes</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="inputoutput">Input/Output</h3>
+<ol start="21">
+<li>
+<p><strong>Explain the concept of Object Streams and Serialization in Java. Provide an example of serializing and deserializing an object.</strong></p>
+<p>Serialization is the process of converting an object into a byte stream, and deserialization is the reverse process.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.*;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#66d9ef">implements</span> Serializable {
+</span></span><span style="display:flex;"><span>    String name;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> age;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Constructor and other methods...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) <span style="color:#66d9ef">throws</span> IOException, ClassNotFoundException {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Serialize object</span>
+</span></span><span style="display:flex;"><span>        Person person <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person(<span style="color:#e6db74">&#34;John&#34;</span>, 25);
+</span></span><span style="display:flex;"><span>        ObjectOutputStream objectOutputStream <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectOutputStream(<span style="color:#66d9ef">new</span> FileOutputStream(<span style="color:#e6db74">&#34;person.ser&#34;</span>));
+</span></span><span style="display:flex;"><span>        objectOutputStream.<span style="color:#a6e22e">writeObject</span>(person);
+</span></span><span style="display:flex;"><span>        objectOutputStream.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Deserialize object</span>
+</span></span><span style="display:flex;"><span>        ObjectInputStream objectInputStream <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectInputStream(<span style="color:#66d9ef">new</span> FileInputStream(<span style="color:#e6db74">&#34;person.ser&#34;</span>));
+</span></span><span style="display:flex;"><span>        Person deserializedPerson <span style="color:#f92672">=</span> (Person) objectInputStream.<span style="color:#a6e22e">readObject</span>();
+</span></span><span style="display:flex;"><span>        objectInputStream.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Discuss the differences between the <code>PrintWriter</code> class and the <code>FileWriter</code> class in Java I/O. Provide an example illustrating their usage.</strong></p>
+<p><code>PrintWriter</code> and <code>FileWriter</code> are both classes used for writing data to files, but they have different functionalities.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.*;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FileWriterVsPrintWriter</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) <span style="color:#66d9ef">throws</span> IOException {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Using FileWriter</span>
+</span></span><span style="display:flex;"><span>        FileWriter fileWriter <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileWriter(<span style="color:#e6db74">&#34;file.txt&#34;</span>);
+</span></span><span style="display:flex;"><span>        fileWriter.<span style="color:#a6e22e">write</span>(<span style="color:#e6db74">&#34;Using FileWriter&#34;</span>);
+</span></span><span style="display:flex;"><span>        fileWriter.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Using PrintWriter</span>
+</span></span><span style="display:flex;"><span>        PrintWriter printWriter <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PrintWriter(<span style="color:#e6db74">&#34;file.txt&#34;</span>);
+</span></span><span style="display:flex;"><span>        printWriter.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Using PrintWriter&#34;</span>);
+</span></span><span style="display:flex;"><span>        printWriter.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Explain the concept of CLASSPATH in Java. How does it affect package and class visibility? Provide an example.</strong></p>
+<p>The CLASSPATH is an environment variable that tells the Java Virtual Machine (JVM) where to look for user-defined classes and packages. It affects the visibility of classes and packages during compilation and execution.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// MyClass.java in package com.example</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyClass</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printMessage</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Hello from MyClass!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If CLASSPATH is set to include the current directory, you can compile and run as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>javac com/example/MyClass.java
+</span></span><span style="display:flex;"><span>java com.example.MyClass
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="swing-fundamentals">Swing Fundamentals</h3>
+<ol start="24">
+<li>
+<p><strong>Explain the Model-View-Controller (MVC) design pattern in the context of Swing. How does Swing implement MVC? Provide an example.</strong></p>
+<p>In Swing, MVC is a design pattern used to separate the application logic into three interconnected components: Model (data and business logic), View (presentation and UI components), and Controller (handles user input and updates the Model and View).</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.swing.*;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.event.ActionEvent;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.event.ActionListener;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Model</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CalculatorModel</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> result;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">int</span> value) {
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">+=</span> value;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getResult</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// View</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CalculatorView</span> <span style="color:#66d9ef">extends</span> JFrame {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> JTextField textField;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> JButton addButton;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">CalculatorView</span>() {
+</span></span><span style="display:flex;"><span>        textField <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JTextField(10);
+</span></span><span style="display:flex;"><span>        addButton <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JButton(<span style="color:#e6db74">&#34;Add&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        setLayout(<span style="color:#66d9ef">new</span> BoxLayout(getContentPane(), BoxLayout.<span style="color:#a6e22e">PAGE_AXIS</span>));
+</span></span><span style="display:flex;"><span>        add(textField);
+</span></span><span style="display:flex;"><span>        add(addButton);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getUserInput</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Integer.<span style="color:#a6e22e">parseInt</span>(textField.<span style="color:#a6e22e">getText</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setResult</span>(<span style="color:#66d9ef">int</span> result) {
+</span></span><span style="display:flex;"><span>        textField.<span style="color:#a6e22e">setText</span>(String.<span style="color:#a6e22e">valueOf</span>(result));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addAddButtonListener</span>(ActionListener listener) {
+</span></span><span style="display:flex;"><span>        addButton.<span style="color:#a6e22e">addActionListener</span>(listener);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Controller</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CalculatorController</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> CalculatorModel model;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> CalculatorView view;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">CalculatorController</span>(CalculatorModel model, CalculatorView view) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">model</span> <span style="color:#f92672">=</span> model;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">view</span> <span style="color:#f92672">=</span> view;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">view</span>.<span style="color:#a6e22e">addAddButtonListener</span>(<span style="color:#66d9ef">new</span> AddButtonListener());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AddButtonListener</span> <span style="color:#66d9ef">implements</span> ActionListener {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">actionPerformed</span>(ActionEvent e) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> userInput <span style="color:#f92672">=</span> view.<span style="color:#a6e22e">getUserInput</span>();
+</span></span><span style="display:flex;"><span>            model.<span style="color:#a6e22e">add</span>(userInput);
+</span></span><span style="display:flex;"><span>            view.<span style="color:#a6e22e">setResult</span>(model.<span style="color:#a6e22e">getResult</span>());
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Main class to run the application</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CalculatorApp</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        CalculatorModel model <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CalculatorModel();
+</span></span><span style="display:flex;"><span>        CalculatorView view <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CalculatorView();
+</span></span><span style="display:flex;"><span>        CalculatorController controller <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CalculatorController(model, view);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        view.<span style="color:#a6e22e">setSize</span>(200, 150);
+</span></span><span style="display:flex;"><span>        view.<span style="color:#a6e22e">setDefaultCloseOperation</span>(JFrame.<span style="color:#a6e22e">EXIT_ON_CLOSE</span>);
+</span></span><span style="display:flex;"><span>        view.<span style="color:#a6e22e">setVisible</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="event-handling-in-swing">Event Handling in Swing</h3>
+<ol start="25">
+<li>
+<p><strong>Explain the event handling mechanism in Swing. Provide an example demonstrating the use of an ActionListener in Swing.</strong></p>
+<p>Event handling in Swing involves registering event listeners to respond to user interactions. An ActionListener, for example, is used to handle button clicks.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.swing.*;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.event.ActionEvent;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.event.ActionListener;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SwingEventHandlingExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        JFrame frame <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JFrame(<span style="color:#e6db74">&#34;Event Handling Example&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        JButton button <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JButton(<span style="color:#e6db74">&#34;Click Me&#34;</span>);
+</span></span><span style="display:flex;"><span>        button.<span style="color:#a6e22e">addActionListener</span>(<span style="color:#66d9ef">new</span> MyActionListener());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">getContentPane</span>().<span style="color:#a6e22e">add</span>(button);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setSize</span>(300, 200);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setDefaultCloseOperation</span>(JFrame.<span style="color:#a6e22e">EXIT_ON_CLOSE</span>);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setVisible</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyActionListener</span> <span style="color:#66d9ef">implements</span> ActionListener {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">actionPerformed</span>(ActionEvent e) {
+</span></span><span style="display:flex;"><span>            JOptionPane.<span style="color:#a6e22e">showMessageDialog</span>(<span style="color:#66d9ef">null</span>, <span style="color:#e6db74">&#34;Button Clicked!&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="swing-layout-managers">Swing Layout Managers</h3>
+<ol start="26">
+<li>
+<p><strong>Discuss the concept of Swing Layout Managers. Provide examples of at least two different layout managers in Swing.</strong></p>
+<p>Layout Managers in Swing control the placement and sizing of components in a container.</p>
+<p>Example with BorderLayout:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.swing.*;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.*;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BorderLayoutExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        JFrame frame <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JFrame(<span style="color:#e6db74">&#34;BorderLayout Example&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        JButton northButton <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JButton(<span style="color:#e6db74">&#34;North&#34;</span>);
+</span></span><span style="display:flex;"><span>        JButton southButton <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JButton(<span style="color:#e6db74">&#34;South&#34;</span>);
+</span></span><span style="display:flex;"><span>        JButton eastButton <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JButton(<span style="color:#e6db74">&#34;East&#34;</span>);
+</span></span><span style="display:flex;"><span>        JButton westButton <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JButton(<span style="color:#e6db74">&#34;West&#34;</span>);
+</span></span><span style="display:flex;"><span>        JButton centerButton <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JButton(<span style="color:#e6db74">&#34;Center&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setLayout</span>(<span style="color:#66d9ef">new</span> BorderLayout());
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(northButton, BorderLayout.<span style="color:#a6e22e">NORTH</span>);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(southButton, BorderLayout.<span style="color:#a6e22e">SOUTH</span>);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(eastButton, BorderLayout.<span style="color:#a6e22e">EAST</span>);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(westButton, BorderLayout.<span style="color:#a6e22e">WEST</span>);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(centerButton, BorderLayout.<span style="color:#a6e22e">CENTER</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setSize</span>(300, 200);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setDefaultCloseOperation</span>(JFrame.<span style="color:#a6e22e">EXIT_ON_CLOSE</span>);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setVisible</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Example with GridLayout:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.swing.*;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.*;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GridLayoutExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        JFrame frame <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JFrame(<span style="color:#e6db74">&#34;GridLayout Example&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        JButton button1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JButton(<span style="color:#e6db74">&#34;Button 1&#34;</span>);
+</span></span><span style="display:flex;"><span>        JButton button2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JButton(<span style="color:#e6db74">&#34;Button 2&#34;</span>);
+</span></span><span style="display:flex;"><span>        JButton button3 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JButton(<span style="color:#e6db74">&#34;Button 3&#34;</span>);
+</span></span><span style="display:flex;"><span>        JButton button4 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JButton(<span style="color:#e6db74">&#34;Button 4&#34;</span>);
+</span></span><span style="display:flex;"><span>        JButton button5 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JButton(<span style="color:#e6db74">&#34;Button 5&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setLayout</span>(<span style="color:#66d9ef">new</span> GridLayout(2, 3));
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(button1);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(button2);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(button3);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(button4);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(button5);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setSize</span>(300, 200);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setDefaultCloseOperation</span>(JFrame.<span style="color:#a6e22e">EXIT_ON_CLOSE</span>);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setVisible</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Explain the Java Database Connectivity (JDBC) framework and its purpose.</strong></p>
+</li>
+</ol>
+<p>JDBC is a Java-based API that enables Java applications to interact with relational databases. It provides a standardized interface for connecting to databases, executing SQL queries, and handling results. The primary purpose is to facilitate seamless communication between Java applications and database systems.</p>
+<ol start="28">
+<li><strong>What are the key components of the JDBC framework, and how do they contribute to database interactions?</strong></li>
+</ol>
+<ul>
+<li><strong>DriverManager:</strong> Manages database drivers and establishes connections.</li>
+<li><strong>Driver:</strong> Handles communication with a specific database type.</li>
+<li><strong>Connection:</strong> Represents a connection to the database.</li>
+<li><strong>Statement:</strong> Executes SQL queries.</li>
+<li><strong>ResultSet:</strong> Represents the result of a query, allowing data retrieval.</li>
+</ul>
+<ol start="29">
+<li><strong>How can you create a table in a relational database using JDBC? Provide an example.</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Connection;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.DriverManager;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Statement;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CreateTableExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            Connection connection <span style="color:#f92672">=</span> DriverManager.<span style="color:#a6e22e">getConnection</span>(<span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/your_database&#34;</span>, <span style="color:#e6db74">&#34;username&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span>);
+</span></span><span style="display:flex;"><span>            Statement statement <span style="color:#f92672">=</span> connection.<span style="color:#a6e22e">createStatement</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            String createTableQuery <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;CREATE TABLE example_table (id INT PRIMARY KEY, name VARCHAR(50))&#34;</span>;
+</span></span><span style="display:flex;"><span>            statement.<span style="color:#a6e22e">executeUpdate</span>(createTableQuery);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            statement.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>            connection.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Exception e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="30">
+<li><strong>How do you delete records from a database using JDBC? Provide an example.</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Connection;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.DriverManager;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Statement;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DeleteRecordsExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            Connection connection <span style="color:#f92672">=</span> DriverManager.<span style="color:#a6e22e">getConnection</span>(<span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/your_database&#34;</span>, <span style="color:#e6db74">&#34;username&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span>);
+</span></span><span style="display:flex;"><span>            Statement statement <span style="color:#f92672">=</span> connection.<span style="color:#a6e22e">createStatement</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            String deleteQuery <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;DELETE FROM example_table WHERE id = 1&#34;</span>;
+</span></span><span style="display:flex;"><span>            statement.<span style="color:#a6e22e">executeUpdate</span>(deleteQuery);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            statement.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>            connection.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Exception e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="31">
+<li><strong>How can you insert data into a database using JDBC? Provide an example.</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Connection;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.DriverManager;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Statement;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InsertDataExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            Connection connection <span style="color:#f92672">=</span> DriverManager.<span style="color:#a6e22e">getConnection</span>(<span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/your_database&#34;</span>, <span style="color:#e6db74">&#34;username&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span>);
+</span></span><span style="display:flex;"><span>            Statement statement <span style="color:#f92672">=</span> connection.<span style="color:#a6e22e">createStatement</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            String insertQuery <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;INSERT INTO example_table (id, name) VALUES (1, &#39;John&#39;)&#34;</span>;
+</span></span><span style="display:flex;"><span>            statement.<span style="color:#a6e22e">executeUpdate</span>(insertQuery);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            statement.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>            connection.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Exception e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="32">
+<li><strong>How do you select data from a database using JDBC? Provide an example.</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Connection;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.DriverManager;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.ResultSet;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Statement;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SelectDataExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            Connection connection <span style="color:#f92672">=</span> DriverManager.<span style="color:#a6e22e">getConnection</span>(<span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/your_database&#34;</span>, <span style="color:#e6db74">&#34;username&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span>);
+</span></span><span style="display:flex;"><span>            Statement statement <span style="color:#f92672">=</span> connection.<span style="color:#a6e22e">createStatement</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            String selectQuery <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SELECT * FROM example_table&#34;</span>;
+</span></span><span style="display:flex;"><span>            ResultSet resultSet <span style="color:#f92672">=</span> statement.<span style="color:#a6e22e">executeQuery</span>(selectQuery);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> (resultSet.<span style="color:#a6e22e">next</span>()) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> id <span style="color:#f92672">=</span> resultSet.<span style="color:#a6e22e">getInt</span>(<span style="color:#e6db74">&#34;id&#34;</span>);
+</span></span><span style="display:flex;"><span>                String name <span style="color:#f92672">=</span> resultSet.<span style="color:#a6e22e">getString</span>(<span style="color:#e6db74">&#34;name&#34;</span>);
+</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;ID: &#34;</span> <span style="color:#f92672">+</span> id <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, Name: &#34;</span> <span style="color:#f92672">+</span> name);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            resultSet.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>            statement.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>            connection.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Exception e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="34">
+<li>
+<p><strong>What is the purpose of the ResultSet interface in JDBC?</strong></p>
+<ul>
+<li>The <code>ResultSet</code> interface represents the result set of a query, allowing the retrieval of data from the database. It provides methods to navigate through the result set and retrieve data based on column names or indices. The <code>ResultSet</code> is essential for processing and displaying query results.</li>
+</ul>
+</li>
+<li>
+<p><strong>How does the <code>Statement</code> interface in JDBC contribute to executing SQL queries?</strong></p>
+<ul>
+<li>The <code>Statement</code> interface in JDBC is used to execute SQL queries. It can handle both simple queries (<code>Statement</code>) and pre-compiled queries (<code>PreparedStatement</code>). The <code>Statement</code> interface provides methods like <code>executeQuery</code> for SELECT queries and <code>executeUpdate</code> for INSERT, UPDATE, DELETE queries.</li>
+</ul>
+</li>
+<li>
+<p><strong>Explain the significance of the <code>PreparedStatement</code> interface in JDBC.</strong></p>
+<ul>
+<li>The <code>PreparedStatement</code> interface extends <code>Statement</code> and is used to execute pre-compiled SQL queries. It offers benefits such as improved performance, better security by preventing SQL injection, and the ability to reuse the same query with different parameter values.</li>
+</ul>
+</li>
+<li>
+<p><strong>How do you handle exceptions in JDBC when working with database operations?</strong></p>
+<ul>
+<li>Exception handling in JDBC is crucial to manage errors that may occur during database interactions. It involves using <code>try-catch</code> blocks to catch exceptions such as <code>SQLException</code>. Proper exception handling ensures that the application gracefully handles database-related errors and provides meaningful feedback to developers and users.</li>
+</ul>
+</li>
+</ol>
+<h1 id="ശഭ">ശുഭം</h1>
+
+    </div>
+	
+</article>
+<style>
+.Content {
+    margin: 0 auto;  
+}
+
+
+</style>
+
+</main>
+
+<footer>
+	<span>© 2024 Adharsh</span>
+	<a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License"
+			src="https://i.creativecommons.org/l/by/3.0/us/80x15.png"></a>
+	<a href="https://github.com/chiefdinkan/chiefdinkan.github.io">Source</a>
+	<span id="real-time" style="font-family: monospace;"></span>
+</footer>
+
+<script src="/js/time.js"></script>
+</div>
+	</body>
+</html>
+
+
