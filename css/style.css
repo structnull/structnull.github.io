@@ -107,7 +107,7 @@ hr {
 
 @media (prefers-color-scheme: dark) {
 	html {
-		background-color: black;
+		background-color:#222021;
 		color: #e8e6e3;
 	}
 
@@ -173,7 +173,7 @@ pre {
 
 p code,
 li code {
-	color: #313244;
+	color: #818380;
 }
 
 p,
