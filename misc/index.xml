@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>愛</title>
-    <link>https://chiefdinkan.github.io/misc/</link>
+    <link>http://adharsh.me/misc/</link>
     <description>Recent content in Misc on 愛</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/chiefdinkan&#34;&gt;Adharsh&lt;/a&gt; 2022-23</copyright>
     <lastBuildDate>Sun, 14 Jan 2024 13:14:43 +0530</lastBuildDate>
     
-        <atom:link href="https://chiefdinkan.github.io/misc/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://adharsh.me/misc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Java</title>
-      <link>https://chiefdinkan.github.io/misc/java/</link>
+      <link>http://adharsh.me/misc/java/</link>
       <pubDate>Sun, 14 Jan 2024 13:14:43 +0530</pubDate>
       
-      <guid>https://chiefdinkan.github.io/misc/java/</guid>
+      <guid>http://adharsh.me/misc/java/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Java Library - String Handling:
 &lt;ul&gt;
@@ -787,10 +787,10 @@ Use an abstract class when you have a base class with common functionality and w
     
     <item>
       <title>Nvim on immutable distro/environment</title>
-      <link>https://chiefdinkan.github.io/misc/nvim/</link>
+      <link>http://adharsh.me/misc/nvim/</link>
       <pubDate>Thu, 27 Apr 2023 00:30:26 +0530</pubDate>
       
-      <guid>https://chiefdinkan.github.io/misc/nvim/</guid>
+      <guid>http://adharsh.me/misc/nvim/</guid>
       <description>&lt;p&gt;what is dis ? ==&amp;gt; le script to install nvim appimage on a distro without sudo access&lt;/p&gt;
 &lt;p&gt;why? ==&amp;gt; coz my lab teacher wont give me sudo access&lt;/p&gt;
 &lt;p&gt;what does this do? ==&amp;gt; curls the nvim binary and install it in $HOME/bin/ and configures a sane init.vim file&lt;/p&gt;
@@ -949,10 +949,10 @@ echo &amp;#34;Neovim has been successfully installed and configured. You can now
     
     <item>
       <title>Games</title>
-      <link>https://chiefdinkan.github.io/misc/games/</link>
+      <link>http://adharsh.me/misc/games/</link>
       <pubDate>Thu, 30 Mar 2023 22:59:12 +0530</pubDate>
       
-      <guid>https://chiefdinkan.github.io/misc/games/</guid>
+      <guid>http://adharsh.me/misc/games/</guid>
       <description>&lt;h2 id=&#34;games-in-htmljs-from-various-sources&#34;&gt;Games in HTML/JS from various sources.&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://zeevkatz.github.io/scroll&#34;&gt;scroll!&lt;/a&gt; a mobile first javascript game made by &lt;a href=&#34;https://github.com/ZeevKatz/&#34;&gt;ZeevKatz&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://supsource.github.io/Advanced-Tic-Tac-Toe/&#34;&gt;Tic-tac-toe&lt;/a&gt;&lt;/p&gt;
