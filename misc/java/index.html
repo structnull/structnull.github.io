@@ -868,6 +868,326 @@ Use an abstract class when you have a base class with common functionality and w
 <li>Exception handling in JDBC is crucial to manage errors that may occur during database interactions. It involves using <code>try-catch</code> blocks to catch exceptions such as <code>SQLException</code>. Proper exception handling ensures that the application gracefully handles database-related errors and provides meaningful feedback to developers and users.</li>
 </ul>
 </li>
+<li>
+<p>**Here&rsquo;s a Java program using Swing that creates a JFrame with three text fields, three labels, and a button. The program takes a number as input in the first text field and, upon clicking the button, displays the previous and next numbers in the second and third text fields, respectively.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.swing.*;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.event.ActionEvent;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.event.ActionListener;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NumberManipulationApp</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        SwingUtilities.<span style="color:#a6e22e">invokeLater</span>(() <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>            createAndShowGUI();
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createAndShowGUI</span>() {
+</span></span><span style="display:flex;"><span>        JFrame frame <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JFrame(<span style="color:#e6db74">&#34;Number Manipulation App&#34;</span>);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setDefaultCloseOperation</span>(JFrame.<span style="color:#a6e22e">EXIT_ON_CLOSE</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Create components</span>
+</span></span><span style="display:flex;"><span>        JTextField inputTextField <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JTextField();
+</span></span><span style="display:flex;"><span>        JTextField previousTextField <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JTextField();
+</span></span><span style="display:flex;"><span>        JTextField nextTextField <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JTextField();
+</span></span><span style="display:flex;"><span>        JLabel inputLabel <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JLabel(<span style="color:#e6db74">&#34;Enter a Number:&#34;</span>);
+</span></span><span style="display:flex;"><span>        JLabel previousLabel <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JLabel(<span style="color:#e6db74">&#34;Previous Number:&#34;</span>);
+</span></span><span style="display:flex;"><span>        JLabel nextLabel <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JLabel(<span style="color:#e6db74">&#34;Next Number:&#34;</span>);
+</span></span><span style="display:flex;"><span>        JButton manipulateButton <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JButton(<span style="color:#e6db74">&#34;Manipulate&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Set layouts</span>
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setLayout</span>(<span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Set bounds for components</span>
+</span></span><span style="display:flex;"><span>        inputLabel.<span style="color:#a6e22e">setBounds</span>(20, 20, 120, 30);
+</span></span><span style="display:flex;"><span>        inputTextField.<span style="color:#a6e22e">setBounds</span>(150, 20, 100, 30);
+</span></span><span style="display:flex;"><span>        manipulateButton.<span style="color:#a6e22e">setBounds</span>(270, 20, 120, 30);
+</span></span><span style="display:flex;"><span>        previousLabel.<span style="color:#a6e22e">setBounds</span>(20, 70, 120, 30);
+</span></span><span style="display:flex;"><span>        previousTextField.<span style="color:#a6e22e">setBounds</span>(150, 70, 100, 30);
+</span></span><span style="display:flex;"><span>        nextLabel.<span style="color:#a6e22e">setBounds</span>(20, 120, 120, 30);
+</span></span><span style="display:flex;"><span>        nextTextField.<span style="color:#a6e22e">setBounds</span>(150, 120, 100, 30);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Add components to the frame</span>
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(inputLabel);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(inputTextField);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(manipulateButton);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(previousLabel);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(previousTextField);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(nextLabel);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">add</span>(nextTextField);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Button action listener</span>
+</span></span><span style="display:flex;"><span>        manipulateButton.<span style="color:#a6e22e">addActionListener</span>(<span style="color:#66d9ef">new</span> ActionListener() {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">actionPerformed</span>(ActionEvent e) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">// Get the input number</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">int</span> inputNumber <span style="color:#f92672">=</span> Integer.<span style="color:#a6e22e">parseInt</span>(inputTextField.<span style="color:#a6e22e">getText</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">// Manipulate and display previous and next numbers</span>
+</span></span><span style="display:flex;"><span>                    previousTextField.<span style="color:#a6e22e">setText</span>(String.<span style="color:#a6e22e">valueOf</span>(inputNumber <span style="color:#f92672">-</span> 1));
+</span></span><span style="display:flex;"><span>                    nextTextField.<span style="color:#a6e22e">setText</span>(String.<span style="color:#a6e22e">valueOf</span>(inputNumber <span style="color:#f92672">+</span> 1));
+</span></span><span style="display:flex;"><span>                } <span style="color:#66d9ef">catch</span> (NumberFormatException ex) {
+</span></span><span style="display:flex;"><span>                    JOptionPane.<span style="color:#a6e22e">showMessageDialog</span>(frame, <span style="color:#e6db74">&#34;Please enter a valid number.&#34;</span>, <span style="color:#e6db74">&#34;Error&#34;</span>, JOptionPane.<span style="color:#a6e22e">ERROR_MESSAGE</span>);
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Set frame properties</span>
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setSize</span>(400, 200);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setLocationRelativeTo</span>(<span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setVisible</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p>Discuss the event handling mechanism in Java using the Delegation Event Model?</p>
+<p>The Delegation Event Model is the event handling mechanism used in Java Swing, which is part of the Java Foundation Classes (JFC). It is a way to handle events in a component-based graphical user interface (GUI) system like Swing. The Delegation Event Model is based on the Observer design pattern, where components register interest in events, and listeners are notified when events occur.</p>
+<p>Here are the key components and concepts of the Delegation Event Model:</p>
+<ol>
+<li>
+<p><strong>Event Source (or Event Producer):</strong></p>
+<ul>
+<li>An event source is an object that generates events. In Swing, components like buttons, text fields, and others are examples of event sources.</li>
+<li>These components have methods to register listeners for specific events. For example, a button has <code>addActionListener()</code> for action events.</li>
+</ul>
+</li>
+<li>
+<p><strong>Event Object:</strong></p>
+<ul>
+<li>An event object encapsulates information about an event. It is an instance of a class that inherits from <code>java.util.EventObject</code> or one of its subclasses.</li>
+<li>The event object carries details about the event, such as the source, type of event, and any other relevant information.</li>
+</ul>
+</li>
+<li>
+<p><strong>EventListener (or Event Consumer):</strong></p>
+<ul>
+<li>An EventListener is an interface that defines methods to handle specific types of events.</li>
+<li>In Swing, various listener interfaces exist, such as <code>ActionListener</code>, <code>MouseListener</code>, <code>KeyListener</code>, etc. Each interface corresponds to a specific type of event.</li>
+</ul>
+</li>
+<li>
+<p><strong>Event Registration:</strong></p>
+<ul>
+<li>An event source allows other objects (listeners) to register interest in specific types of events. This is typically done through methods like <code>addActionListener()</code>, <code>addMouseListener()</code>, etc.</li>
+<li>Multiple listeners can register for the same type of event from a single event source.</li>
+</ul>
+</li>
+<li>
+<p><strong>Delegation:</strong></p>
+<ul>
+<li>When an event occurs, the event source delegates the responsibility of handling the event to the registered listeners.</li>
+<li>The source notifies the registered listeners by invoking their appropriate event-handling methods. For example, calling the <code>actionPerformed(ActionEvent e)</code> method for an <code>ActionListener</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Event Dispatch Thread (EDT):</strong></p>
+<ul>
+<li>Swing components are not thread-safe, and all GUI updates should be done on the Event Dispatch Thread (EDT).</li>
+<li>Event listeners, when notified of an event, are executed on the EDT to ensure proper synchronization and avoid concurrency issues.</li>
+</ul>
+</li>
+</ol>
+<p>Here&rsquo;s a simple example demonstrating the use of the Delegation Event Model with a <code>JButton</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.swing.*;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.event.ActionEvent;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.event.ActionListener;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EventHandlingExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        SwingUtilities.<span style="color:#a6e22e">invokeLater</span>(() <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>            createAndShowGUI();
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createAndShowGUI</span>() {
+</span></span><span style="display:flex;"><span>        JFrame frame <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JFrame(<span style="color:#e6db74">&#34;Event Handling Example&#34;</span>);
+</span></span><span style="display:flex;"><span>        JButton button <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JButton(<span style="color:#e6db74">&#34;Click Me&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Register an ActionListener to the button</span>
+</span></span><span style="display:flex;"><span>        button.<span style="color:#a6e22e">addActionListener</span>(<span style="color:#66d9ef">new</span> ActionListener() {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">actionPerformed</span>(ActionEvent e) {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// This method is called when the button is clicked</span>
+</span></span><span style="display:flex;"><span>                JOptionPane.<span style="color:#a6e22e">showMessageDialog</span>(frame, <span style="color:#e6db74">&#34;Button Clicked!&#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">getContentPane</span>().<span style="color:#a6e22e">add</span>(button);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setSize</span>(300, 200);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setDefaultCloseOperation</span>(JFrame.<span style="color:#a6e22e">EXIT_ON_CLOSE</span>);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setLocationRelativeTo</span>(<span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>        frame.<span style="color:#a6e22e">setVisible</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p>What are the uses of synchronized keyword in Java? Explain with examples.</p>
+<p>The <code>synchronized</code> keyword in Java is used to control access to critical sections of code by multiple threads. It ensures that only one thread at a time can execute a synchronized method or a block of code. This is essential for preventing data corruption and maintaining the consistency of shared resources in a multithreaded environment. Here are some common use cases for the <code>synchronized</code> keyword:</p>
+<ol>
+<li>
+<p><strong>Method Synchronization:</strong>
+When a method is declared as synchronized, only one thread can execute that method at any given time. Other threads attempting to access the synchronized method have to wait until the current thread releases the lock.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SynchronizedExample</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Synchronized method</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>        count<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        SynchronizedExample example <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SynchronizedExample();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Multiple threads trying to increment the count</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 5; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">new</span> Thread(() <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> 0; j <span style="color:#f92672">&lt;</span> 10000; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>                    example.<span style="color:#a6e22e">increment</span>();
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }).<span style="color:#a6e22e">start</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Wait for all threads to finish</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            Thread.<span style="color:#a6e22e">sleep</span>(1000);
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (InterruptedException e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Count: &#34;</span> <span style="color:#f92672">+</span> example.<span style="color:#a6e22e">count</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Block Synchronization:</strong>
+Instead of synchronizing an entire method, you can use a synchronized block to protect a specific section of code. This allows more fine-grained control over synchronization.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SynchronizedBlockExample</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Object lock <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Synchronized block</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">synchronized</span> (lock) {
+</span></span><span style="display:flex;"><span>            count<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        SynchronizedBlockExample example <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SynchronizedBlockExample();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Multiple threads trying to increment the count</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 5; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">new</span> Thread(() <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> 0; j <span style="color:#f92672">&lt;</span> 10000; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>                    example.<span style="color:#a6e22e">increment</span>();
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }).<span style="color:#a6e22e">start</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Wait for all threads to finish</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            Thread.<span style="color:#a6e22e">sleep</span>(1000);
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (InterruptedException e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Count: &#34;</span> <span style="color:#f92672">+</span> example.<span style="color:#a6e22e">count</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Static Method Synchronization:</strong>
+Similar to instance methods, you can also use the <code>synchronized</code> keyword with static methods. In this case, the lock is associated with the class rather than an instance of the class.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SynchronizedStaticExample</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Synchronized static method</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>        count<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        SynchronizedStaticExample example1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SynchronizedStaticExample();
+</span></span><span style="display:flex;"><span>        SynchronizedStaticExample example2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SynchronizedStaticExample();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Multiple threads trying to increment the count using different instances</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 5; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">new</span> Thread(() <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> 0; j <span style="color:#f92672">&lt;</span> 10000; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>                    example1.<span style="color:#a6e22e">increment</span>();
+</span></span><span style="display:flex;"><span>                    example2.<span style="color:#a6e22e">increment</span>();
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }).<span style="color:#a6e22e">start</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Wait for all threads to finish</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            Thread.<span style="color:#a6e22e">sleep</span>(1000);
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (InterruptedException e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Count: &#34;</span> <span style="color:#f92672">+</span> count);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<p>In all these examples, the <code>synchronized</code> keyword ensures that the shared resource (<code>count</code> variable in this case) is accessed by only one thread at a time, preventing potential race conditions and ensuring data consistency. It&rsquo;s important to use synchronization judiciously to avoid performance issues and deadlocks.</p>
+</li>
+<li>
+<p>Write java code to create three threads using runnable interface.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ThreeThreadsExample</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Creating instances of the Runnable implementations</span>
+</span></span><span style="display:flex;"><span>        RunnableTask task1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RunnableTask(<span style="color:#e6db74">&#34;Thread 1&#34;</span>);
+</span></span><span style="display:flex;"><span>        RunnableTask task2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RunnableTask(<span style="color:#e6db74">&#34;Thread 2&#34;</span>);
+</span></span><span style="display:flex;"><span>        RunnableTask task3 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RunnableTask(<span style="color:#e6db74">&#34;Thread 3&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Creating threads and passing the Runnable instances</span>
+</span></span><span style="display:flex;"><span>        Thread thread1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Thread(task1);
+</span></span><span style="display:flex;"><span>        Thread thread2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Thread(task2);
+</span></span><span style="display:flex;"><span>        Thread thread3 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Thread(task3);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Starting the threads</span>
+</span></span><span style="display:flex;"><span>        thread1.<span style="color:#a6e22e">start</span>();
+</span></span><span style="display:flex;"><span>        thread2.<span style="color:#a6e22e">start</span>();
+</span></span><span style="display:flex;"><span>        thread3.<span style="color:#a6e22e">start</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Runnable implementation</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RunnableTask</span> <span style="color:#66d9ef">implements</span> Runnable {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> String threadName;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">RunnableTask</span>(String threadName) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">threadName</span> <span style="color:#f92672">=</span> threadName;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span>() {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 1; i <span style="color:#f92672">&lt;=</span> 5; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(threadName <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;: Count &#34;</span> <span style="color:#f92672">+</span> i);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">// Adding a short delay for demonstration purposes</span>
+</span></span><span style="display:flex;"><span>                    Thread.<span style="color:#a6e22e">sleep</span>(1000);
+</span></span><span style="display:flex;"><span>                } <span style="color:#66d9ef">catch</span> (InterruptedException e) {
+</span></span><span style="display:flex;"><span>                    e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>The <code>RunnableTask</code> class implements the <code>Runnable</code> interface and provides the <code>run()</code> method, which contains the code to be executed by the thread.</li>
+<li>Three instances of <code>RunnableTask</code> are created, each representing a separate task to be executed concurrently.</li>
+<li>Three <code>Thread</code> instances are created, passing the respective <code>RunnableTask</code> instances to their constructors.</li>
+<li>The <code>start()</code> method is called on each thread to initiate the execution of their corresponding <code>run()</code> methods concurrently.</li>
+</ul>
+</li>
 </ol>
 <h1 id="ശഭ">ശുഭം</h1>
 
