@@ -1,0 +1,24 @@
+body {
+    text-align: center;
+}
+.quote-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 60px 10em 60px;
+  width: fit-content;
+}
+
+.quote-container p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color :#787878;
+  font-family: 'bpdots', monospace;
+}
+
+@media screen and (min-width: 600px) {
+  .quote-container p {
+    font-size: 1.5rem;
+  }
+}
