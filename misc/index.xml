@@ -53,8 +53,8 @@
 &lt;h2 id=&#34;cherry-picked-questions---&#34;&gt;cherry picked questions &amp;ndash;&amp;gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;What is the difference between AWT and Swing?
-AWT (Abstract Window Toolkit) and Swing are both used to develop GUI-based applications in Java, but they have some key differences:&lt;/p&gt;
+&lt;p&gt;What is the difference between AWT and Swing?&lt;/p&gt;
+&lt;p&gt;AWT (Abstract Window Toolkit) and Swing are both used to develop GUI-based applications in Java, but they have some key differences:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;API Package&lt;/strong&gt;: AWT component classes are provided by the &lt;code&gt;java.awt&lt;/code&gt; package, while Swing component classes are provided by the &lt;code&gt;javax.swing&lt;/code&gt; package¹².&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Operating System Dependency&lt;/strong&gt;: AWT components are mainly dependent on the operating system, whereas Swing components are not. Swing is completely scripted in Java¹².&lt;/li&gt;
@@ -67,8 +67,8 @@ AWT (Abstract Window Toolkit) and Swing are both used to develop GUI-based appli
 &lt;p&gt;In summary, while AWT is Java&amp;rsquo;s original platform-dependent windowing, graphics, and user interface widget toolkit, Swing is a GUI widget toolkit for Java that is an extension of AWT³⁵. Swing also has richer functionality, and for GUI-intensive work, AWT can feel primitive compared to Swing⁴.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;what does this keyword do ?
-In Java, the &lt;code&gt;this&lt;/code&gt; keyword is a reference variable that refers to the current object. It is used to represent the instance of the class in which it appears. Here are some common uses of the &lt;code&gt;this&lt;/code&gt; keyword:&lt;/p&gt;
+&lt;p&gt;what does this keyword do ?&lt;/p&gt;
+&lt;p&gt;In Java, the &lt;code&gt;this&lt;/code&gt; keyword is a reference variable that refers to the current object. It is used to represent the instance of the class in which it appears. Here are some common uses of the &lt;code&gt;this&lt;/code&gt; keyword:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;To distinguish instance variables from local variables:&lt;/strong&gt;&lt;/p&gt;
@@ -198,7 +198,6 @@ The &lt;code&gt;this&lt;/code&gt; keyword is especially useful in situations whe
 &lt;p&gt;Method overloading allows a class to have multiple methods with the same name but different parameter lists (different types or different number of parameters).&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Certainly! Let&amp;rsquo;s continue with more challenging questions starting from question 12:&lt;/p&gt;
 &lt;h3 id=&#34;inheritance&#34;&gt;Inheritance&lt;/h3&gt;
 &lt;ol start=&#34;12&#34;&gt;
 &lt;li&gt;
