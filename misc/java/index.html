@@ -728,6 +728,146 @@ Use an abstract class when you have a base class with common functionality and w
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></li>
+<li>
+<p><strong>Explain the Java Database Connectivity (JDBC) framework and its purpose.</strong></p>
+</li>
+</ol>
+<p>JDBC is a Java-based API that enables Java applications to interact with relational databases. It provides a standardized interface for connecting to databases, executing SQL queries, and handling results. The primary purpose is to facilitate seamless communication between Java applications and database systems.</p>
+<ol start="28">
+<li><strong>What are the key components of the JDBC framework, and how do they contribute to database interactions?</strong></li>
+</ol>
+<ul>
+<li><strong>DriverManager:</strong> Manages database drivers and establishes connections.</li>
+<li><strong>Driver:</strong> Handles communication with a specific database type.</li>
+<li><strong>Connection:</strong> Represents a connection to the database.</li>
+<li><strong>Statement:</strong> Executes SQL queries.</li>
+<li><strong>ResultSet:</strong> Represents the result of a query, allowing data retrieval.</li>
+</ul>
+<ol start="29">
+<li><strong>How can you create a table in a relational database using JDBC? Provide an example.</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Connection;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.DriverManager;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Statement;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CreateTableExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            Connection connection <span style="color:#f92672">=</span> DriverManager.<span style="color:#a6e22e">getConnection</span>(<span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/your_database&#34;</span>, <span style="color:#e6db74">&#34;username&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span>);
+</span></span><span style="display:flex;"><span>            Statement statement <span style="color:#f92672">=</span> connection.<span style="color:#a6e22e">createStatement</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            String createTableQuery <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;CREATE TABLE example_table (id INT PRIMARY KEY, name VARCHAR(50))&#34;</span>;
+</span></span><span style="display:flex;"><span>            statement.<span style="color:#a6e22e">executeUpdate</span>(createTableQuery);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            statement.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>            connection.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Exception e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="30">
+<li><strong>How do you delete records from a database using JDBC? Provide an example.</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Connection;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.DriverManager;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Statement;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DeleteRecordsExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            Connection connection <span style="color:#f92672">=</span> DriverManager.<span style="color:#a6e22e">getConnection</span>(<span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/your_database&#34;</span>, <span style="color:#e6db74">&#34;username&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span>);
+</span></span><span style="display:flex;"><span>            Statement statement <span style="color:#f92672">=</span> connection.<span style="color:#a6e22e">createStatement</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            String deleteQuery <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;DELETE FROM example_table WHERE id = 1&#34;</span>;
+</span></span><span style="display:flex;"><span>            statement.<span style="color:#a6e22e">executeUpdate</span>(deleteQuery);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            statement.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>            connection.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Exception e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="31">
+<li><strong>How can you insert data into a database using JDBC? Provide an example.</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Connection;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.DriverManager;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Statement;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InsertDataExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            Connection connection <span style="color:#f92672">=</span> DriverManager.<span style="color:#a6e22e">getConnection</span>(<span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/your_database&#34;</span>, <span style="color:#e6db74">&#34;username&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span>);
+</span></span><span style="display:flex;"><span>            Statement statement <span style="color:#f92672">=</span> connection.<span style="color:#a6e22e">createStatement</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            String insertQuery <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;INSERT INTO example_table (id, name) VALUES (1, &#39;John&#39;)&#34;</span>;
+</span></span><span style="display:flex;"><span>            statement.<span style="color:#a6e22e">executeUpdate</span>(insertQuery);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            statement.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>            connection.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Exception e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="32">
+<li><strong>How do you select data from a database using JDBC? Provide an example.</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Connection;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.DriverManager;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.ResultSet;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.sql.Statement;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SelectDataExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            Connection connection <span style="color:#f92672">=</span> DriverManager.<span style="color:#a6e22e">getConnection</span>(<span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/your_database&#34;</span>, <span style="color:#e6db74">&#34;username&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span>);
+</span></span><span style="display:flex;"><span>            Statement statement <span style="color:#f92672">=</span> connection.<span style="color:#a6e22e">createStatement</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            String selectQuery <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SELECT * FROM example_table&#34;</span>;
+</span></span><span style="display:flex;"><span>            ResultSet resultSet <span style="color:#f92672">=</span> statement.<span style="color:#a6e22e">executeQuery</span>(selectQuery);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> (resultSet.<span style="color:#a6e22e">next</span>()) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> id <span style="color:#f92672">=</span> resultSet.<span style="color:#a6e22e">getInt</span>(<span style="color:#e6db74">&#34;id&#34;</span>);
+</span></span><span style="display:flex;"><span>                String name <span style="color:#f92672">=</span> resultSet.<span style="color:#a6e22e">getString</span>(<span style="color:#e6db74">&#34;name&#34;</span>);
+</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;ID: &#34;</span> <span style="color:#f92672">+</span> id <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, Name: &#34;</span> <span style="color:#f92672">+</span> name);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            resultSet.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>            statement.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>            connection.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Exception e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="34">
+<li>
+<p><strong>What is the purpose of the ResultSet interface in JDBC?</strong></p>
+<ul>
+<li>The <code>ResultSet</code> interface represents the result set of a query, allowing the retrieval of data from the database. It provides methods to navigate through the result set and retrieve data based on column names or indices. The <code>ResultSet</code> is essential for processing and displaying query results.</li>
+</ul>
+</li>
+<li>
+<p><strong>How does the <code>Statement</code> interface in JDBC contribute to executing SQL queries?</strong></p>
+<ul>
+<li>The <code>Statement</code> interface in JDBC is used to execute SQL queries. It can handle both simple queries (<code>Statement</code>) and pre-compiled queries (<code>PreparedStatement</code>). The <code>Statement</code> interface provides methods like <code>executeQuery</code> for SELECT queries and <code>executeUpdate</code> for INSERT, UPDATE, DELETE queries.</li>
+</ul>
+</li>
+<li>
+<p><strong>Explain the significance of the <code>PreparedStatement</code> interface in JDBC.</strong></p>
+<ul>
+<li>The <code>PreparedStatement</code> interface extends <code>Statement</code> and is used to execute pre-compiled SQL queries. It offers benefits such as improved performance, better security by preventing SQL injection, and the ability to reuse the same query with different parameter values.</li>
+</ul>
+</li>
+<li>
+<p><strong>How do you handle exceptions in JDBC when working with database operations?</strong></p>
+<ul>
+<li>Exception handling in JDBC is crucial to manage errors that may occur during database interactions. It involves using <code>try-catch</code> blocks to catch exceptions such as <code>SQLException</code>. Proper exception handling ensures that the application gracefully handles database-related errors and provides meaningful feedback to developers and users.</li>
+</ul>
+</li>
 </ol>
 <h1 id="ശഭ">ശുഭം</h1>
 
