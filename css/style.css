@@ -1,5 +1,3 @@
-/* Layout */
-
 body {
 	font-family: "Nanum Gothic Coding", "bpdots", "Jetbrains Mono", monospace;
 	flex-flow: row;
@@ -31,17 +29,12 @@ h2 {
 
 #main {
 	display: flex;
-	flex: auto;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	width: 100%;
 	min-height: 85vh;
-	max-width: 100vh;
-	overflow: visible;
-	min-width: 200px;
-	display: flex;
-	align-items: center;
-	align-self: center;
-	justify-content: center;
-	flex-flow: column;
+	padding: 15px;
 }
 
 #main > nav,
@@ -58,6 +51,8 @@ h2 {
 
 #main > main {
 	flex: 1;
+	width: 100%;
+	max-width: 800px; /* You can adjust the max-width according to your design */
 }
 
 #main > footer {
@@ -68,29 +63,37 @@ h2 {
 	body {
 		flex-direction: column;
 	}
+
 	h1 {
 		font-size: 2.2em;
 		text-align: center;
 	}
+
 	h2 {
 		font-size: 1.4em;
 	}
+
 	p,
 	ol,
 	li {
 		font-size: small;
-		/* text-align:justify; */
 	}
-    pre{
-        font-size:12px;
-        
-    }
+
+	pre {
+		font-size: 12px;
+	}
+
 	#main {
 		display: flex;
-		min-height: 85vh;
-		align-self: center;
+		align-items: stretch;
 		justify-content: center;
-		align-items: normal;
+	}
+
+	#main > nav,
+	#main > main,
+	#main > footer {
+		margin-right: 0;
+		margin-left: 0;
 	}
 }
 
@@ -107,12 +110,11 @@ hr {
 
 @media (prefers-color-scheme: dark) {
 	html {
-		background-color:#131516;
+		background-color: #131516;
 		color: #e8e6e3;
 	}
 
 	article img:not([src$=".jpg"]):not([src$=".jpeg"]):not(.opaque) {
-		/* prevent transparent images from showing the black background */
 		background-color: white;
 		border: 5px solid white;
 		box-sizing: border-box;
@@ -181,7 +183,6 @@ ol,
 li {
 	font-family: "Jetbrains Mono", monospace;
 	font-size: large;
-	/* text-align:justify; */
 }
 
 a,
