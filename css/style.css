@@ -3,20 +3,19 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	background-color: #131516;
 	margin: 0;
 }
 
-body > header {
+body>header {
 	text-align: center;
 }
 
-body > header h1 {
+body>header h1 {
 	width: 100%;
 	margin: 0;
 }
 
-body > header p {
+body>header p {
 	color: gray;
 }
 
@@ -37,24 +36,24 @@ h2 {
 	min-height: 85vh;
 }
 
-#main > nav,
-#main > main,
-#main > footer {
+#main>nav,
+#main>main,
+#main>footer {
 	padding: 15px;
 	margin: 0;
 }
 
-#main > nav {
+#main>nav {
 	text-align: center;
 }
 
-#main > main {
+#main>main {
 	flex: 1;
 	width: 100%;
 	max-width: 800px;
 }
 
-#main > footer {
+#main>footer {
 	padding-top: 50px;
 }
 
@@ -89,9 +88,9 @@ h2 {
 		margin: 0;
 	}
 
-	#main > nav,
-	#main > main,
-	#main > footer {
+	#main>nav,
+	#main>main,
+	#main>footer {
 		margin: 0;
 		width: 100%;
 	}
@@ -108,18 +107,18 @@ hr {
 	color: gray;
 }
 
-/* @media (prefers-color-scheme: dark) { */
-/* 	html { */
-/* 		background-color: #131516; */
-/* 		color: #e8e6e3; */
-/* 	} */
-/**/
-/* 	article img:not([src$=".jpg"]):not([src$=".jpeg"]):not(.opaque) { */
-/* 		background-color: white; */
-/* 		border: 5px solid white; */
-/* 		box-sizing: border-box; */
-/* 	} */
-/* } */
+@media (prefers-color-scheme: dark) {
+	html {
+		background-color: #131516;
+		color: #e8e6e3;
+	}
+
+	article img:not([src$=".jpg"]):not([src$=".jpeg"]):not(.opaque) {
+		background-color: white;
+		border: 5px solid white;
+		box-sizing: border-box;
+	}
+}
 
 /* Homepage */
 
@@ -147,11 +146,11 @@ hr {
 
 /* Typography */
 
-article > header {
+article>header {
 	margin-bottom: 2em;
 }
 
-article > header time {
+article>header time {
 	color: gray;
 	font-style: "Jetbrains mono", monospace;
 	white-space: nowrap;
@@ -219,6 +218,7 @@ iframe.video {
 }
 
 @media (max-width: 640px) {
+
 	iframe[src*="youtube-nocookie.com"],
 	iframe.video {
 		height: 260px;
@@ -227,7 +227,7 @@ iframe.video {
 
 /* Article list */
 
-.article-list article > header {
+.article-list article>header {
 	display: flex;
 	flex-flow: row;
 	align-items: center;
