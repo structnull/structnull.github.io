@@ -7,10 +7,21 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/chiefdinkan&#34;&gt;Adharsh&lt;/a&gt; 2022-23</copyright>
-    <lastBuildDate>Sun, 14 Jan 2024 13:14:43 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 24 Aug 2024 15:04:46 +0530</lastBuildDate>
     
         <atom:link href="https://adharsh.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Blog</title>
+      <link>https://adharsh.me/blog/</link>
+      <pubDate>Sat, 24 Aug 2024 15:04:46 +0530</pubDate>
+      
+      <guid>https://adharsh.me/blog/</guid>
+      <description></description>
+      
+      
+    </item>
     
     <item>
       <title>Misc</title>
@@ -38,7 +49,7 @@ In my free time, I often find myself contemplating various topics. I am particul
 &lt;p&gt;Also maybe just a tiny bit of authoring logical statements in a specific programming language that convey meaning and can be interpreted by a computing device for the purpose of accomplishing predetermined objectives.&lt;/p&gt;
 &lt;p&gt;This is a website made by &lt;a href=&#34;https://gohugo.io/&#34;&gt;hugo&lt;/a&gt;.
 &lt;a href=&#34;https://codeberg.org/dinkan/website&#34;&gt;Source code&lt;/a&gt; of this website is hosted at codeberg&lt;/p&gt;
-&lt;p&gt;You can contact me by &lt;a href=&#34;https://www.instagram.com/va_adharsh/&#34;&gt;instagram&lt;/a&gt; , &lt;a href=&#34;https://github.com/chiefdinkan&#34;&gt;github&lt;/a&gt; , &lt;a href=&#34;mailto:adharshva321@gmail.com&#34;&gt;email&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can contact me by &lt;a href=&#34;https://www.instagram.com/va_adharsh/&#34;&gt;instagram&lt;/a&gt; , &lt;a href=&#34;https://github.com/structnull&#34;&gt;github&lt;/a&gt; , &lt;a href=&#34;mailto:adharshva321@gmail.com&#34;&gt;email&lt;/a&gt;&lt;/p&gt;
 </description>
       
       

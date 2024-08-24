@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Sbctl in archlinux · 愛</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+	<link rel="canonical" href="https://adharsh.me/blog/sbctl/">
+
+	
+
+	<link rel="stylesheet" href="https://adharsh.me/css/bpdotregular.css" type="text/css" charset="utf-8" />
+	<link rel="stylesheet" href="https://adharsh.me/node_modules/jetbrains-mono/css/jetbrains-mono.css">
+	<link rel="stylesheet" href="https://adharsh.me/node_modules/normalize.css/normalize.css">
+	<link rel="stylesheet" href="https://adharsh.me/css/nanum-gothic-coding.css">
+	<link rel="stylesheet" href="https://adharsh.me/css/style.css">
+	<script src="https://adharsh.me/js/scroll.js"></script>
+</head>
+
+<body>
+
+
+<header class="header">
+    <div class="header__title-container">
+        <h1 class="header__title">
+            <span class="emoji"></span>
+        </h1>
+    </div>
+</header>
+
+<div id="main">
+    <nav>
+	<div class="nav-container"><a href="https://adharsh.me/">home</a> &bullet;
+	<a href="https://adharsh.me/blog">blog</a> &bullet;
+	<a href="https://adharsh.me/misc">misc</a> &bullet;
+	<a rel="me" href="https://adharsh.me/about">about</a> 
+</nav>
+
+<style>
+
+.nav-container {
+    display: flex;
+    font-style: 'bpdots',monospace;
+    justify-content: center;
+    align-items: center; 
+    flex-wrap: nowrap;
+}
+nav a {
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0 10px;
+    transition: all 0.2s ease;
+    flex: 1;
+    align-items: center; 
+}
+nav a:hover {
+    text-decoration: underline;
+    color: #725E9C;
+    transform: scale(1.1);
+}
+&bullet; {
+    font-size: inherit;
+    font-style: bold;
+}
+@media screen and (max-width: 600px) {
+    .nav-container{
+        flex-wrap: wrap;
+    }
+    nav a{
+        width: 100%;
+        text-align: center;
+        font-size: 1.3em;
+    }
+}
+</style>
+
+<main>
+<script src="https://adharsh.me/js/emoji.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@600&display=swap');
+.header {
+    padding: 20px;
+    text-align: center;
+}
+.header__title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.emoji{
+font-family: 'Noto Emoji', sans-serif;
+}
+
+.header__title {
+    font-size: 78px;
+    font-weight: bold;
+    text-shadow: 2px 2px #333;
+}
+</style>
+
+
+
+<article >
+    <div class="Content">
+        <header>
+		<h1>Sbctl in archlinux</h1>
+		
+			<time datetime='2024-08-24T15:04:46&#43;05:30'>2024-08-24</time>
+		
+	</header>
+	<p>This is a blog/guide on how to setup a secureboot signed uefi boot using grub in archlinux.</p>
+<p>I&rsquo;m sure some of you can relate when I say that dealing with Valorant&rsquo;s anti-cheat(kernal level spyware) measures (I know, I hate it too)
+has driven me up the wall. And to make matters worse, switching between my laptop&rsquo;s UEFI settings every time I boot into Windows was a real pain.</p>
+<p>That&rsquo;s why I decided to search for solutions and stumbled upon the Arch Linux wiki on Unified Extensible Firmware Interface (UEFI). After some digging, I realized that setting up
+Secure Boot with GRUB in Arch Linux wasn&rsquo;t as complicated as I thought it&rsquo;d be.</p>
+<p>The main stuff needed here are:</p>
+<ul>
+<li><a href="https://github.com/Foxboron/sbctl">sbctl</a></li>
+<li><a href="https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Implementing_Secure_Boot">archwiki</a></li>
+<li>room temprature iq.</li>
+</ul>
+<p>Also be warned that not every thing showed here should work on your pc/laptops and it may/may not brick ur bios.</p>
+<p><img src="/images/warning.png" alt="WARNING"></p>
+<p>Here, we&rsquo;re taking control by signing our bootloader (Grub) and EFI files with our
+own keys. To do this, we need to enter the setup mode of Secure Boot in BIOS/UEFI.</p>
+<p>As for getting into this mode, there are various methods, but one way is similar to
+what&rsquo;s shown below:</p>
+<p><img src="/images/bios.png" alt="bios"></p>
+<p>After it is in setup mode and secureboot disabled reboot into archlinux and install sbctl using</p>
+<pre tabindex="0"><code>sudo pacman -S sbctl
+</code></pre><p>and check for sbctl status (need root access)</p>
+<pre tabindex="0"><code>sbctl status
+</code></pre><p>You should see that sbctl is not installed and secure boot is disabled.
+Then create your custom secure boot keys:</p>
+<pre tabindex="0"><code>sbctl create-keys
+</code></pre><p>Enroll your keys, with Microsoft&rsquo;s keys, to the UEFI:</p>
+<pre tabindex="0"><code>sbctl enroll-keys -m
+</code></pre><p>Check the secure boot status again:</p>
+<pre tabindex="0"><code>sbctl status
+</code></pre><p>sbctl should be installed now, but secure boot will not work until the boot files have been signed with the keys you just created.</p>
+<p>before signing , Re-install GRUB to utilize Microsoft&rsquo;s CA certificates (as opposed to shim) &ndash; replace &rsquo;esp&rsquo; with your EFI system partition:</p>
+<pre tabindex="0"><code>sudo grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB --modules=&#34;tpm&#34; --disable-shim-lock 
+</code></pre><p>Check what files need to be signed for secure boot to work:</p>
+<pre tabindex="0"><code>sbctl verify
+</code></pre><p>Now sign all the unsigned files. Usually the kernel and the boot loader and grub need to be signed. For example:</p>
+<pre tabindex="0"><code>sbctl sign -s /boot/vmlinuz-linux
+sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI
+sbctl sign -s /boot/EFI/GRUB/grubx64.efi
+</code></pre><p>The files that need to be signed will depend on your system&rsquo;s layout, kernel and boot loader.</p>
+<p>Now you are done! Reboot your system and turn secure boot back on in the firmware settings. If the boot loader and OS load, secure boot should be working. Check with:</p>
+<pre tabindex="0"><code>sbctl status
+</code></pre><p>it should be something like this &ndash;&gt;</p>
+<p><img src="/images/sbctl.png" alt="sbctl"></p>
+<p>Following this procedural sequence, Arch Linux can now be booted, thereby effecting a
+seamless transition into a functional operating environment using secure-boot!.</p>
+<h3 id="as-a-precautionary-measure-it-is-incumbent-upon-the-reader-to-acknowledge-that-i-assume-no-liability-for-any-unforeseen-consequences-that-may-arise-from-the-implementation-of-these-instructions-without-proper-circumspection-and-technical-competence">As a precautionary measure, it is incumbent upon the reader to acknowledge that I assume no liability for any unforeseen consequences that may arise from the implementation of these instructions without proper circumspection and technical competence.</h3>
+
+    </div>
+	
+</article>
+<style>
+.Content {
+    margin: 0 auto;  
+}
+
+
+</style>
+
+</main>
+
+<footer>
+	<span>© 2024 Adharsh</span>
+	<a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License"
+			src="https://i.creativecommons.org/l/by/3.0/us/80x15.png"></a>
+	<a href="https://github.com/chiefdinkan/chiefdinkan.github.io">Source</a>
+	<span id="real-time" style="font-family: monospace;"></span>
+</footer>
+<script src="/js/time.js"></script>
+</div>
+	</body>
+</html>
+
+

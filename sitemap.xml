@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://adharsh.me/blog/</loc>
+    <lastmod>2024-08-24T15:04:46+05:30</lastmod>
+  </url><url>
+    <loc>https://adharsh.me/blog/sbctl/</loc>
+    <lastmod>2024-08-24T15:04:46+05:30</lastmod>
+  </url><url>
+    <loc>https://adharsh.me/</loc>
+    <lastmod>2024-08-24T15:04:46+05:30</lastmod>
+  </url><url>
     <loc>https://adharsh.me/misc/java/</loc>
     <lastmod>2024-01-14T13:14:43+05:30</lastmod>
   </url><url>
     <loc>https://adharsh.me/misc/</loc>
-    <lastmod>2024-01-14T13:14:43+05:30</lastmod>
-  </url><url>
-    <loc>https://adharsh.me/</loc>
     <lastmod>2024-01-14T13:14:43+05:30</lastmod>
   </url><url>
     <loc>https://adharsh.me/misc/nvim/</loc>

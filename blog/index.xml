@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>愛</title>
+    <link>https://adharsh.me/blog/</link>
+    <description>Recent content in Blog on 愛</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/chiefdinkan&#34;&gt;Adharsh&lt;/a&gt; 2022-23</copyright>
+    <lastBuildDate>Sat, 24 Aug 2024 15:04:46 +0530</lastBuildDate>
+    
+        <atom:link href="https://adharsh.me/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sbctl in archlinux</title>
+      <link>https://adharsh.me/blog/sbctl/</link>
+      <pubDate>Sat, 24 Aug 2024 15:04:46 +0530</pubDate>
+      
+      <guid>https://adharsh.me/blog/sbctl/</guid>
+      <description>&lt;p&gt;This is a blog/guide on how to setup a secureboot signed uefi boot using grub in archlinux.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m sure some of you can relate when I say that dealing with Valorant&amp;rsquo;s anti-cheat(kernal level spyware) measures (I know, I hate it too)
+has driven me up the wall. And to make matters worse, switching between my laptop&amp;rsquo;s UEFI settings every time I boot into Windows was a real pain.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s why I decided to search for solutions and stumbled upon the Arch Linux wiki on Unified Extensible Firmware Interface (UEFI). After some digging, I realized that setting up
+Secure Boot with GRUB in Arch Linux wasn&amp;rsquo;t as complicated as I thought it&amp;rsquo;d be.&lt;/p&gt;
+&lt;p&gt;The main stuff needed here are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Foxboron/sbctl&#34;&gt;sbctl&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Implementing_Secure_Boot&#34;&gt;archwiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;room temprature iq.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Also be warned that not every thing showed here should work on your pc/laptops and it may/may not brick ur bios.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://adharsh.me/images/warning.png&#34; alt=&#34;WARNING&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Here, we&amp;rsquo;re taking control by signing our bootloader (Grub) and EFI files with our
+own keys. To do this, we need to enter the setup mode of Secure Boot in BIOS/UEFI.&lt;/p&gt;
+&lt;p&gt;As for getting into this mode, there are various methods, but one way is similar to
+what&amp;rsquo;s shown below:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://adharsh.me/images/bios.png&#34; alt=&#34;bios&#34;&gt;&lt;/p&gt;
+&lt;p&gt;After it is in setup mode and secureboot disabled reboot into archlinux and install sbctl using&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo pacman -S sbctl
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and check for sbctl status (need root access)&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sbctl status
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You should see that sbctl is not installed and secure boot is disabled.
+Then create your custom secure boot keys:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sbctl create-keys
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Enroll your keys, with Microsoft&amp;rsquo;s keys, to the UEFI:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sbctl enroll-keys -m
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Check the secure boot status again:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sbctl status
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;sbctl should be installed now, but secure boot will not work until the boot files have been signed with the keys you just created.&lt;/p&gt;
+&lt;p&gt;before signing , Re-install GRUB to utilize Microsoft&amp;rsquo;s CA certificates (as opposed to shim) &amp;ndash; replace &amp;rsquo;esp&amp;rsquo; with your EFI system partition:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB --modules=&amp;#34;tpm&amp;#34; --disable-shim-lock 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Check what files need to be signed for secure boot to work:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sbctl verify
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now sign all the unsigned files. Usually the kernel and the boot loader and grub need to be signed. For example:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sbctl sign -s /boot/vmlinuz-linux
+sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI
+sbctl sign -s /boot/EFI/GRUB/grubx64.efi
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The files that need to be signed will depend on your system&amp;rsquo;s layout, kernel and boot loader.&lt;/p&gt;
+&lt;p&gt;Now you are done! Reboot your system and turn secure boot back on in the firmware settings. If the boot loader and OS load, secure boot should be working. Check with:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sbctl status
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;it should be something like this &amp;ndash;&amp;gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://adharsh.me/images/sbctl.png&#34; alt=&#34;sbctl&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Following this procedural sequence, Arch Linux can now be booted, thereby effecting a
+seamless transition into a functional operating environment using secure-boot!.&lt;/p&gt;
+&lt;h3 id=&#34;as-a-precautionary-measure-it-is-incumbent-upon-the-reader-to-acknowledge-that-i-assume-no-liability-for-any-unforeseen-consequences-that-may-arise-from-the-implementation-of-these-instructions-without-proper-circumspection-and-technical-competence&#34;&gt;As a precautionary measure, it is incumbent upon the reader to acknowledge that I assume no liability for any unforeseen consequences that may arise from the implementation of these instructions without proper circumspection and technical competence.&lt;/h3&gt;
+</description>
+      
+      
+    </item>
+    
+  </channel>
+</rss>
