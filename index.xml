@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>愛</title>
-    <link>https://adharsh.me/</link>
+    <link>https://structnull.github.io/</link>
     <description>Recent content on 愛</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/structnull&#34;&gt;Adharsh&lt;/a&gt; 2022-23</copyright>
     <lastBuildDate>Mon, 18 Nov 2024 12:12:48 +0530</lastBuildDate>
     
-        <atom:link href="https://adharsh.me/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://structnull.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Blog</title>
-      <link>https://adharsh.me/blog/</link>
+      <link>https://structnull.github.io/blog/</link>
       <pubDate>Mon, 18 Nov 2024 12:12:48 +0530</pubDate>
       
-      <guid>https://adharsh.me/blog/</guid>
+      <guid>https://structnull.github.io/blog/</guid>
       <description></description>
       
       
@@ -25,10 +25,10 @@
     
     <item>
       <title>Misc</title>
-      <link>https://adharsh.me/misc/</link>
+      <link>https://structnull.github.io/misc/</link>
       <pubDate>Tue, 08 Oct 2024 17:53:22 +0530</pubDate>
       
-      <guid>https://adharsh.me/misc/</guid>
+      <guid>https://structnull.github.io/misc/</guid>
       <description></description>
       
       
@@ -36,12 +36,12 @@
     
     <item>
       <title>About</title>
-      <link>https://adharsh.me/about/</link>
+      <link>https://structnull.github.io/about/</link>
       <pubDate>Sun, 13 Nov 2022 11:24:29 +0530</pubDate>
       
-      <guid>https://adharsh.me/about/</guid>
+      <guid>https://structnull.github.io/about/</guid>
       <description>&lt;p align=&#34;center&#34;&gt;
-  &lt;img src=&#34;https://adharsh.me/HVD.gif&#34; alt=&#34;HVD&#34;&gt;
+  &lt;img src=&#34;https://structnull.github.io/HVD.gif&#34; alt=&#34;HVD&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;Greeting!. My name is &lt;strong&gt;Adharsh&lt;/strong&gt;. My cerebral inclinations are captivated by the boundless expanse of Free and Open Source Software (FOSS), Linux, anime, cinematic experiences,
 sonic expressions, and most notably, any phenomenon that pertains to computers and technology - an area that has secured a sacrosanct place in my heart.
