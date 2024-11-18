@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Wpa_cracking · 愛</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+	<link rel="canonical" href="https://adharsh.me/blog/wpa_cracking/">
+
+	
+
+	<link rel="stylesheet" href="https://adharsh.me/css/bpdotregular.css" type="text/css" charset="utf-8" />
+	<link rel="stylesheet" href="https://adharsh.me/node_modules/jetbrains-mono/css/jetbrains-mono.css">
+	<link rel="stylesheet" href="https://adharsh.me/node_modules/normalize.css/normalize.css">
+	<link rel="stylesheet" href="https://adharsh.me/css/nanum-gothic-coding.css">
+	<link rel="stylesheet" href="https://adharsh.me/css/style.css">
+	<script src="https://adharsh.me/js/scroll.js"></script>
+</head>
+
+<body>
+
+
+<header class="header">
+    <div class="header__title-container">
+        <h1 class="header__title">
+            <span class="emoji"></span>
+        </h1>
+    </div>
+</header>
+
+<div id="main">
+    <nav>
+	<div class="nav-container"><a href="https://adharsh.me/">home</a> &bullet;
+	<a href="https://adharsh.me/blog">blog</a> &bullet;
+	<a href="https://adharsh.me/misc">misc</a> &bullet;
+	<a rel="me" href="https://adharsh.me/about">about</a> 
+</nav>
+
+<style>
+
+.nav-container {
+    display: flex;
+    font-style: 'bpdots',monospace;
+    justify-content: center;
+    align-items: center; 
+    flex-wrap: nowrap;
+}
+nav a {
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0 10px;
+    transition: all 0.2s ease;
+    flex: 1;
+    align-items: center; 
+}
+nav a:hover {
+    text-decoration: underline;
+    color: #725E9C;
+    transform: scale(1.1);
+}
+&bullet; {
+    font-size: inherit;
+    font-style: bold;
+}
+@media screen and (max-width: 600px) {
+    .nav-container{
+        flex-wrap: wrap;
+    }
+    nav a{
+        width: 100%;
+        text-align: center;
+        font-size: 1.3em;
+    }
+}
+</style>
+
+<main>
+<script src="https://adharsh.me/js/emoji.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@600&display=swap');
+.header {
+    padding: 20px;
+    text-align: center;
+}
+.header__title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.emoji{
+font-family: 'Noto Emoji', sans-serif;
+}
+
+.header__title {
+    font-size: 78px;
+    font-weight: bold;
+    text-shadow: 2px 2px #333;
+}
+</style>
+
+
+
+<article >
+    <div class="Content">
+        <header>
+		<h1>Wpa_cracking</h1>
+		
+			<time datetime='2024-11-18T12:12:48&#43;05:30'>2024-11-18</time>
+		
+	</header>
+	<h1 id="wifi-wpa-password-cracking">Wifi WPA password cracking</h1>
+<pre tabindex="0"><code>Disclaimer: This article is intended for educational purposes ONLY.
+The information presented here is meant to serve as a hands-on exercise to
+augment understanding of cybersecurity and ethical hacking principles put into
+practice for lawful purposes.
+</code></pre><p>After being jokingly called a &ldquo;hacker&rdquo; for using Arch Linux and working in the terminal, I decided to explore the world of ethical hacking and penetration testing seriously.</p>
+<p>While the journey is just beginning, I am documenting what I learn and sharing insights through my blog. This marks the start of a deeper dive into cybersecurity and the fascinating field of penetration testing.</p>
+<p>First step : Check if your wifi card supports monitor mode or buy one which supports it.</p>
+<h2 id="kill-potential-interrupting-services">Kill potential interrupting services.</h2>
+<p>Before enabling monitor mode, identify and kill any services that might interrupt the process.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- sudo airmon-ng check wlan0
+</span></span><span style="display:flex;"><span>- sudo airmon-ng check kill
+</span></span></code></pre></div><h2 id="enable-monitor-mode">Enable monitor mode.</h2>
+<p>Stop the WLAN interface and switch it to operate in monitor mode.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- sudo ifconfig wlan0 down
+</span></span><span style="display:flex;"><span>- sudo iwconfig wlan0 mode mon
+</span></span><span style="display:flex;"><span>- sudo ifconfig wlan0 up
+</span></span></code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo airmon-ng start wlan0
+</span></span></code></pre></div><p>Verify the WNIC is operating in monitor mode.</p>
+<pre tabindex="0"><code>iwconfig
+</code></pre><h3 id="hash-extraction-and-preparation-for-cracking">Hash Extraction and Preparation for Cracking</h3>
+<p>Our initial step in the password cracking procedure involves installing <strong><a href="https://hashcat.net/hashcat/">Hashcat</a></strong>, which is renowned as the world’s fastest and most advanced password recovery tool. The captured data from network sniffing is typically stored in the <code>pcapng</code> format. However, Hashcat requires the data to be in a hashfile format for processing.</p>
+<p>To address this, I utilized a tool from the powerful <strong><a href="https://github.com/ZerBea/hcxtools">hcxtools</a></strong> suite. This toolset efficiently converts <code>pcapng</code> files into the hashfile format, ensuring compatibility with Hashcat and streamlining the cracking process.</p>
+<h3 id="methods-for-capturing-wifi-handshakes-in-password-cracking">Methods for Capturing WiFi Handshakes in Password Cracking</h3>
+<p>To crack a WiFi password, it is essential to capture a live four-way handshake, a process that occurs during the establishment of a connection between a client and a router. This requires the attacker to monitor the network at the precise moment when the user or device connects to the WiFi network. Consequently, the attacker must be physically positioned within range of both the access point (router) and the client, relying on the user to enter the correct password and ensuring that all four packets of the handshake are successfully captured.</p>
+<p>To expedite this process, an attacker can employ a deauthentication attack to force an already-connected user to disconnect and re-establish the connection. This approach eliminates the need to wait for a user to connect naturally, which may take an extended period (e.g., a home network user may not reconnect until returning from work). By de-authenticating the user, the attacker can induce the generation of a new four-way handshake, facilitating the capture process.</p>
+<p>Another strategy involves the deployment of a malicious twin network, also known as an &ldquo;evil twin,&rdquo; which mimics the legitimate network by broadcasting the same SSID (network name). This method aims to deceive users into attempting to connect to the fake network, thereby exposing their credentials. However, this technique has significant drawbacks: it is highly conspicuous, as the activity can generate detectable anomalies, and users may readily recognize and avoid the fraudulent network.</p>
+<h3 id="pmkid-based-wifi-password-cracking-eliminating-real-time-login-capture">PMKID-Based WiFi Password Cracking: Eliminating Real-Time Login Capture</h3>
+<p>Traditional WiFi password cracking methods rely on capturing a user&rsquo;s login process in real-time or waiting for users to connect to the network. However, leveraging the PMKID (Pairwise Master Key Identifier) attack eliminates these constraints. This approach removes the dependency on users actively connecting to the network and significantly simplifies the cracking process.</p>
+<p>In this method, the attacker only needs to be within the vicinity of the router or network to capture a single PMKID frame. This frame is sufficient to attempt cracking the password without relying on a live four-way handshake. Furthermore, the PMKID approach inherently filters out incorrect passwords and malformed frames that could otherwise disrupt the cracking process.</p>
+<p>Simply put, this technique does not require waiting for user activity on the network. Instead, the attacker passively obtains the PMKID hash and focuses on cracking it.</p>
+<p>To effectively crack a PMKID, it is essential to first understand its generation process.</p>
+<h2 id="preparing-the-system-for-hcxdumptool-execution">Preparing the System for Hcxdumptool Execution</h2>
+<p>To ensure optimal performance and prevent interference during the execution of <strong><a href="https://github.com/ZerBea/hcxtools">Hcxdumptool</a></strong>, it is recommended to disable services that could conflict with its operation. The following commands can be used to stop these services:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl stop wpa_supplicant <span style="color:#f92672">&amp;&amp;</span> sudo systemctl stop NetworkManager
+</span></span></code></pre></div><p>Then it is time to start sniffing.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo hcxdumptool -i wlan0 -w dumpfile.pcapng --rds<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -F             
+</span></span></code></pre></div><ul>
+<li>-i my is my NIC, you can execute ifconfig to find your interface name.</li>
+<li>-w the output pcapng of the execution.</li>
+<li>-F is used to listen to all channels</li>
+<li>use -h to know more about hcxdumptool</li>
+</ul>
+<h2 id="its-cracking-time">It’s cracking time!</h2>
+<p>Our first step in the cracking procedure is to install hashcat, the world’s fastest and most advanced password recovery tool.
+As the sniffing results are in the form of pcapng, we needed to convert them into a hashfile format to fit it to hashcat.
+For this goal, I made use of another tool from the great suite of hcxtools.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hcxpcapngtool -o sed.txt dumpfile.pcapng
+</span></span></code></pre></div><p>above makes a hashfile which can be used for cracking using hashcat
+Resulting in a hashfile that each line takes on the following structure:</p>
+<pre tabindex="0"><code>SIGNATURE*TYPE*PMKID/MIC*MACAP*MACSTA*ESSID* * *
+</code></pre><p>Now for cracking passwords using hashcat and using gpu for parallel processing install cuda in your distribution.
+and run hashcat</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo bash -c <span style="color:#e6db74">&#34;hashcat -m 22000 -a 3 -w4 -o cracked.txt --opencl-device-types 2 --status --status-timer=10 sed.txt ?d?d?d?d?d?d?d?d&#34;</span>
+</span></span></code></pre></div><p>with increment flag:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo bash -c <span style="color:#e6db74">&#34;hashcat -m 22000 -a 3 -w4 -o cracked.txt --opencl-device-types 2 --status --status-timer=10 --increment --increment-min=8 --increment-max=12 sed.txt ?d?d?d?d?d?d?d?d&#34;</span>
+</span></span></code></pre></div><p>overview for commands used:</p>
+<ul>
+<li><strong><code>-m 22000</code></strong>:
+<ul>
+<li>Specifies the hash type. <code>22000</code> is used for WPA-PBKDF2-PMKID+EAPOL (a hash type related to Wi-Fi authentication).</li>
+</ul>
+</li>
+<li><strong><code>-a 3</code></strong>:
+<ul>
+<li>Selects the attack mode. <code>3</code> is a brute-force attack mode.</li>
+</ul>
+</li>
+<li><strong><code>-w4</code></strong>:
+<ul>
+<li>Sets the workload profile. <code>4</code> is the highest workload setting, utilizing maximum GPU resources for performance.</li>
+</ul>
+</li>
+<li><strong><code>-o cracked.txt</code></strong>:
+<ul>
+<li>Specifies the output file (<code>cracked.txt</code>) where found passwords will be saved.</li>
+</ul>
+</li>
+<li><strong><code>--opencl-device-types 2</code></strong>:
+<ul>
+<li>Limits the attack to only GPU devices (OpenCL device type <code>2</code> refers to GPUs).</li>
+</ul>
+</li>
+<li><strong><code>--status</code></strong>:
+<ul>
+<li>Enables status output, showing progress periodically.</li>
+</ul>
+</li>
+<li><strong><code>--status-timer=10</code></strong>:
+<ul>
+<li>Sets the interval for the status update to every 10 seconds.</li>
+</ul>
+</li>
+<li><strong><code>sed.txt</code></strong>:
+<ul>
+<li>The input file containing the hash(es) to be cracked.</li>
+</ul>
+</li>
+<li><strong><code>?d?d?d?d?d?d?d?d</code></strong>:
+<ul>
+<li>A mask specifying the brute-force pattern.</li>
+</ul>
+</li>
+</ul>
+<p>the output of cracked passwords should be in cracked.txt in the same dir.</p>
+<h2 id="now-how-do-i-attack-a-specific-wifi-address">Now how do I attack a specific Wifi address?</h2>
+<p>Just create a Berkeley Packet Filter and add it to hcxdumptool. from <a href="https://github.com/ZerBea/hcxdumptool/discussions/348">github issue</a>
+Note: card should be in Managed mode to scan networks.</p>
+<h2 id="how-to-use-with-aircrack-ng">how to use with aircrack-ng</h2>
+<p><a href="https://predatech.co.uk/capturing-and-cracking-wpa-wpa2-wifi-passwords/">useful guide with syntax errors</a></p>
+
+    </div>
+	
+</article>
+<style>
+.Content {
+    margin: 0 auto;  
+}
+
+
+</style>
+
+</main>
+
+<footer>
+	<span>© 2024 Adharsh</span>
+	<a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License"
+			src="https://i.creativecommons.org/l/by/3.0/us/80x15.png"></a>
+	<a href="https://github.com/chiefdinkan/chiefdinkan.github.io">Source</a>
+	<span id="real-time" style="font-family: monospace;"></span>
+</footer>
+<script src="/js/time.js"></script>
+</div>
+	</body>
+</html>
+
+

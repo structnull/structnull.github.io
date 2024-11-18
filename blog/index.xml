@@ -7,10 +7,132 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/structnull&#34;&gt;Adharsh&lt;/a&gt; 2022-23</copyright>
-    <lastBuildDate>Sat, 24 Aug 2024 15:04:46 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 18 Nov 2024 12:12:48 +0530</lastBuildDate>
     
         <atom:link href="https://adharsh.me/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Wpa_cracking</title>
+      <link>https://adharsh.me/blog/wpa_cracking/</link>
+      <pubDate>Mon, 18 Nov 2024 12:12:48 +0530</pubDate>
+      
+      <guid>https://adharsh.me/blog/wpa_cracking/</guid>
+      <description>&lt;h1 id=&#34;wifi-wpa-password-cracking&#34;&gt;Wifi WPA password cracking&lt;/h1&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Disclaimer: This article is intended for educational purposes ONLY.
+The information presented here is meant to serve as a hands-on exercise to
+augment understanding of cybersecurity and ethical hacking principles put into
+practice for lawful purposes.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After being jokingly called a &amp;ldquo;hacker&amp;rdquo; for using Arch Linux and working in the terminal, I decided to explore the world of ethical hacking and penetration testing seriously.&lt;/p&gt;
+&lt;p&gt;While the journey is just beginning, I am documenting what I learn and sharing insights through my blog. This marks the start of a deeper dive into cybersecurity and the fascinating field of penetration testing.&lt;/p&gt;
+&lt;p&gt;First step : Check if your wifi card supports monitor mode or buy one which supports it.&lt;/p&gt;
+&lt;h2 id=&#34;kill-potential-interrupting-services&#34;&gt;Kill potential interrupting services.&lt;/h2&gt;
+&lt;p&gt;Before enabling monitor mode, identify and kill any services that might interrupt the process.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- sudo airmon-ng check wlan0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- sudo airmon-ng check kill
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;enable-monitor-mode&#34;&gt;Enable monitor mode.&lt;/h2&gt;
+&lt;p&gt;Stop the WLAN interface and switch it to operate in monitor mode.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- sudo ifconfig wlan0 down
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- sudo iwconfig wlan0 mode mon
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- sudo ifconfig wlan0 up
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo airmon-ng start wlan0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Verify the WNIC is operating in monitor mode.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;iwconfig
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;hash-extraction-and-preparation-for-cracking&#34;&gt;Hash Extraction and Preparation for Cracking&lt;/h3&gt;
+&lt;p&gt;Our initial step in the password cracking procedure involves installing &lt;strong&gt;&lt;a href=&#34;https://hashcat.net/hashcat/&#34;&gt;Hashcat&lt;/a&gt;&lt;/strong&gt;, which is renowned as the world’s fastest and most advanced password recovery tool. The captured data from network sniffing is typically stored in the &lt;code&gt;pcapng&lt;/code&gt; format. However, Hashcat requires the data to be in a hashfile format for processing.&lt;/p&gt;
+&lt;p&gt;To address this, I utilized a tool from the powerful &lt;strong&gt;&lt;a href=&#34;https://github.com/ZerBea/hcxtools&#34;&gt;hcxtools&lt;/a&gt;&lt;/strong&gt; suite. This toolset efficiently converts &lt;code&gt;pcapng&lt;/code&gt; files into the hashfile format, ensuring compatibility with Hashcat and streamlining the cracking process.&lt;/p&gt;
+&lt;h3 id=&#34;methods-for-capturing-wifi-handshakes-in-password-cracking&#34;&gt;Methods for Capturing WiFi Handshakes in Password Cracking&lt;/h3&gt;
+&lt;p&gt;To crack a WiFi password, it is essential to capture a live four-way handshake, a process that occurs during the establishment of a connection between a client and a router. This requires the attacker to monitor the network at the precise moment when the user or device connects to the WiFi network. Consequently, the attacker must be physically positioned within range of both the access point (router) and the client, relying on the user to enter the correct password and ensuring that all four packets of the handshake are successfully captured.&lt;/p&gt;
+&lt;p&gt;To expedite this process, an attacker can employ a deauthentication attack to force an already-connected user to disconnect and re-establish the connection. This approach eliminates the need to wait for a user to connect naturally, which may take an extended period (e.g., a home network user may not reconnect until returning from work). By de-authenticating the user, the attacker can induce the generation of a new four-way handshake, facilitating the capture process.&lt;/p&gt;
+&lt;p&gt;Another strategy involves the deployment of a malicious twin network, also known as an &amp;ldquo;evil twin,&amp;rdquo; which mimics the legitimate network by broadcasting the same SSID (network name). This method aims to deceive users into attempting to connect to the fake network, thereby exposing their credentials. However, this technique has significant drawbacks: it is highly conspicuous, as the activity can generate detectable anomalies, and users may readily recognize and avoid the fraudulent network.&lt;/p&gt;
+&lt;h3 id=&#34;pmkid-based-wifi-password-cracking-eliminating-real-time-login-capture&#34;&gt;PMKID-Based WiFi Password Cracking: Eliminating Real-Time Login Capture&lt;/h3&gt;
+&lt;p&gt;Traditional WiFi password cracking methods rely on capturing a user&amp;rsquo;s login process in real-time or waiting for users to connect to the network. However, leveraging the PMKID (Pairwise Master Key Identifier) attack eliminates these constraints. This approach removes the dependency on users actively connecting to the network and significantly simplifies the cracking process.&lt;/p&gt;
+&lt;p&gt;In this method, the attacker only needs to be within the vicinity of the router or network to capture a single PMKID frame. This frame is sufficient to attempt cracking the password without relying on a live four-way handshake. Furthermore, the PMKID approach inherently filters out incorrect passwords and malformed frames that could otherwise disrupt the cracking process.&lt;/p&gt;
+&lt;p&gt;Simply put, this technique does not require waiting for user activity on the network. Instead, the attacker passively obtains the PMKID hash and focuses on cracking it.&lt;/p&gt;
+&lt;p&gt;To effectively crack a PMKID, it is essential to first understand its generation process.&lt;/p&gt;
+&lt;h2 id=&#34;preparing-the-system-for-hcxdumptool-execution&#34;&gt;Preparing the System for Hcxdumptool Execution&lt;/h2&gt;
+&lt;p&gt;To ensure optimal performance and prevent interference during the execution of &lt;strong&gt;&lt;a href=&#34;https://github.com/ZerBea/hcxtools&#34;&gt;Hcxdumptool&lt;/a&gt;&lt;/strong&gt;, it is recommended to disable services that could conflict with its operation. The following commands can be used to stop these services:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl stop wpa_supplicant &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo systemctl stop NetworkManager
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then it is time to start sniffing.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo hcxdumptool -i wlan0 -w dumpfile.pcapng --rds&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; -F             
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;-i my is my NIC, you can execute ifconfig to find your interface name.&lt;/li&gt;
+&lt;li&gt;-w the output pcapng of the execution.&lt;/li&gt;
+&lt;li&gt;-F is used to listen to all channels&lt;/li&gt;
+&lt;li&gt;use -h to know more about hcxdumptool&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;its-cracking-time&#34;&gt;It’s cracking time!&lt;/h2&gt;
+&lt;p&gt;Our first step in the cracking procedure is to install hashcat, the world’s fastest and most advanced password recovery tool.
+As the sniffing results are in the form of pcapng, we needed to convert them into a hashfile format to fit it to hashcat.
+For this goal, I made use of another tool from the great suite of hcxtools.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hcxpcapngtool -o sed.txt dumpfile.pcapng
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;above makes a hashfile which can be used for cracking using hashcat
+Resulting in a hashfile that each line takes on the following structure:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SIGNATURE*TYPE*PMKID/MIC*MACAP*MACSTA*ESSID* * *
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now for cracking passwords using hashcat and using gpu for parallel processing install cuda in your distribution.
+and run hashcat&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo bash -c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hashcat -m 22000 -a 3 -w4 -o cracked.txt --opencl-device-types 2 --status --status-timer=10 sed.txt ?d?d?d?d?d?d?d?d&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;with increment flag:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo bash -c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hashcat -m 22000 -a 3 -w4 -o cracked.txt --opencl-device-types 2 --status --status-timer=10 --increment --increment-min=8 --increment-max=12 sed.txt ?d?d?d?d?d?d?d?d&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;overview for commands used:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;-m 22000&lt;/code&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Specifies the hash type. &lt;code&gt;22000&lt;/code&gt; is used for WPA-PBKDF2-PMKID+EAPOL (a hash type related to Wi-Fi authentication).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;-a 3&lt;/code&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Selects the attack mode. &lt;code&gt;3&lt;/code&gt; is a brute-force attack mode.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;-w4&lt;/code&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Sets the workload profile. &lt;code&gt;4&lt;/code&gt; is the highest workload setting, utilizing maximum GPU resources for performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;-o cracked.txt&lt;/code&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Specifies the output file (&lt;code&gt;cracked.txt&lt;/code&gt;) where found passwords will be saved.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;--opencl-device-types 2&lt;/code&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Limits the attack to only GPU devices (OpenCL device type &lt;code&gt;2&lt;/code&gt; refers to GPUs).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;--status&lt;/code&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Enables status output, showing progress periodically.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;--status-timer=10&lt;/code&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Sets the interval for the status update to every 10 seconds.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;sed.txt&lt;/code&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;The input file containing the hash(es) to be cracked.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;?d?d?d?d?d?d?d?d&lt;/code&gt;&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;A mask specifying the brute-force pattern.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;the output of cracked passwords should be in cracked.txt in the same dir.&lt;/p&gt;
+&lt;h2 id=&#34;now-how-do-i-attack-a-specific-wifi-address&#34;&gt;Now how do I attack a specific Wifi address?&lt;/h2&gt;
+&lt;p&gt;Just create a Berkeley Packet Filter and add it to hcxdumptool. from &lt;a href=&#34;https://github.com/ZerBea/hcxdumptool/discussions/348&#34;&gt;github issue&lt;/a&gt;
+Note: card should be in Managed mode to scan networks.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-use-with-aircrack-ng&#34;&gt;how to use with aircrack-ng&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://predatech.co.uk/capturing-and-cracking-wpa-wpa2-wifi-passwords/&#34;&gt;useful guide with syntax errors&lt;/a&gt;&lt;/p&gt;
+</description>
+      
+      
+    </item>
     
     <item>
       <title>Sbctl in archlinux</title>

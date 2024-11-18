@@ -7,10 +7,21 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/structnull&#34;&gt;Adharsh&lt;/a&gt; 2022-23</copyright>
-    <lastBuildDate>Tue, 08 Oct 2024 17:53:22 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 18 Nov 2024 12:12:48 +0530</lastBuildDate>
     
         <atom:link href="https://adharsh.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Blog</title>
+      <link>https://adharsh.me/blog/</link>
+      <pubDate>Mon, 18 Nov 2024 12:12:48 +0530</pubDate>
+      
+      <guid>https://adharsh.me/blog/</guid>
+      <description></description>
+      
+      
+    </item>
     
     <item>
       <title>Misc</title>
@@ -18,17 +29,6 @@
       <pubDate>Tue, 08 Oct 2024 17:53:22 +0530</pubDate>
       
       <guid>https://adharsh.me/misc/</guid>
-      <description></description>
-      
-      
-    </item>
-    
-    <item>
-      <title>Blog</title>
-      <link>https://adharsh.me/blog/</link>
-      <pubDate>Sat, 24 Aug 2024 15:04:46 +0530</pubDate>
-      
-      <guid>https://adharsh.me/blog/</guid>
       <description></description>
       
       
