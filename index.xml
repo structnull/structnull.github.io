@@ -35,36 +35,27 @@
     </item>
     
     <item>
-      <title>About</title>
+      <title>about</title>
       <link>https://structnull.github.io/about/</link>
-      <pubDate>Sun, 13 Nov 2022 11:24:29 +0530</pubDate>
+      <pubDate>Sun, 13 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://structnull.github.io/about/</guid>
-      <description>&lt;p&gt;Greeting!. My name is &lt;strong&gt;Adharsh&lt;/strong&gt;. My cerebral inclinations are captivated by the boundless expanse of Free and Open Source Software (FOSS), Linux, anime, cinematic experiences,
-sonic expressions, and most notably, any phenomenon that pertains to computers and technology - an area that has secured a sacrosanct place in my heart.
-When I am not engaged in the rigors of professional pursuits, I often find myself ensconced in introspective rumination on various topics. My curiosity is piqued by the enigmatic
-conundrums of existence, including the ontological question of our raison d&amp;rsquo;être - a query that has captivated philosophers and scholars for centuries. These musings serve as a
-catalyst for me to delve deeper into the labyrinthine complexities of life&amp;rsquo;s mysteries.&lt;/p&gt;
-&lt;p&gt;Also maybe just a tiny bit of authoring logical statements in a specific programming language that convey meaning and can be interpreted by a computing device for the purpose of accomplishing predetermined objectives.&lt;/p&gt;
-&lt;p&gt;This is a website made by &lt;a href=&#34;https://gohugo.io/&#34;&gt;hugo&lt;/a&gt;.
-&lt;a href=&#34;https://codeberg.org/dinkan/website&#34;&gt;Source code&lt;/a&gt; of this website is hosted at codeberg&lt;/p&gt;
-&lt;p&gt;You can contact me by &lt;a href=&#34;https://www.instagram.com/va_adharsh/&#34;&gt;instagram&lt;/a&gt; , &lt;a href=&#34;https://github.com/chiefdinkan&#34;&gt;github&lt;/a&gt; , &lt;a href=&#34;mailto:adharshva321@gmail.com&#34;&gt;email&lt;/a&gt;&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;                                           .
-
-
-                                                   *
-                        .
-              *                              --O--
-                                              /|\\
-                 ,                     .
-                                           .
-..-.--*--.__-__..._.--..-._.---....~__..._.--..~._.---.--..____.--_--&amp;#39;`_---..
-       -.--~--._  __..._.--..~._.--- - -.____.--_--&amp;#39;`_---..~.----_~
-
-                                    .--..~._
-                  -.-
-                                 .-.        .
-&lt;/code&gt;&lt;/pre&gt;</description>
+      <description>&lt;p&gt;structnull(1)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NAME:&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;structnull/adharsh&lt;/strong&gt; — The personal website of Adharsh, a person who has musings for FOSS, Linux, anime, cinema, sonic art, and all things technology.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SYNOPSIS:&lt;/strong&gt;&lt;br&gt;
+structnull [OPTIONS]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DESCRIPTION:&lt;/strong&gt;&lt;br&gt;
+(V A) Adharsh — a tech enthusiast who ponders life&amp;rsquo;s mysteries and codes ideas into reality(mostly).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DETAILS:&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;Built with:&lt;/strong&gt; &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt;&lt;br&gt;
+&lt;strong&gt;Source Code:&lt;/strong&gt; Hosted at &lt;a href=&#34;https://codeberg.org/dinkan/website&#34;&gt;Codeberg&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CONTACT:&lt;/strong&gt;&lt;br&gt;
+&lt;a href=&#34;https://www.linkedin.com/in/adharsh-va-9432592ab/&#34;&gt;&lt;strong&gt;Linkdin&lt;/strong&gt;&lt;/a&gt; || &lt;a href=&#34;https://www.instagram.com/va_adharsh&#34;&gt;&lt;strong&gt;Instagram&lt;/strong&gt; &lt;/a&gt;  || &lt;a href=&#34;https://github.com/structnull&#34;&gt;&lt;strong&gt;GitHub&lt;/strong&gt; &lt;/a&gt;  || &lt;a href=&#34;adharshva321@gmail.com&#34;&gt;&lt;strong&gt;Email&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;COPYRIGHT:&lt;/strong&gt;&lt;br&gt;
+© 2020-25 Adharsh. All rights reserved.&lt;br&gt;
+This website is free software—redistribution is permitted under the GPLv2.&lt;/p&gt;
+</description>
       
       
     </item>

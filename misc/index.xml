@@ -63,7 +63,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;cherry-picked-questions---&#34;&gt;cherry picked questions &amp;ndash;&amp;gt;&lt;/h2&gt;
+&lt;h2 id=&#34;cherry-picked-questions-&#34;&gt;cherry picked questions &amp;ndash;&amp;gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;What is the difference between AWT and Swing?&lt;/p&gt;
@@ -1205,7 +1205,7 @@ set clipboard+=unnamedplus
 EOF
 
 echo &amp;#34;Neovim has been successfully installed and configured. You can now use it by typing &amp;#39;nvim&amp;#39; in the terminal.&amp;#34;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;the-wget-version---&#34;&gt;The wget version &amp;ndash;&amp;gt;&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;the-wget-version-&#34;&gt;The wget version &amp;ndash;&amp;gt;&lt;/h2&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#!/bin/bash
 
 NEOVIM_URL=&amp;#34;https://github.com/neovim/neovim/releases/latest/download/nvim.appimage&amp;#34;
